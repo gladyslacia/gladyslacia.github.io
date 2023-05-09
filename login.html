@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>The GL Instructions</title>
+
+        <!-- Favicon -->
+        <link href="codes/graphics/favicon.jpg" rel="icon">
+
+        <!-- Style and Function -->
+        <link href="codes/style.css" rel="stylesheet">
+        <script src="codes/function.js"></script>
+    </head>
+
+    <body>
+        <header class="header1">
+            <h1>The Gladys Lacia Instructional Website</h1>
+            <nav>
+                <ul>
+                    <li>No account? <button onclick="signup()" class="signup">Sign-up</button></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="home">
+            <div class="header2">
+                <h2>The Gladys Lacia Instructional Website</h2>
+                <p>No account? <a style="padding: 5px 5px; border: solid;" onclick="signup()">Sign-up</a></p>
+            </div>
+            
+            <form>
+                <input type="email" class="log" placeholder="Valid Email" required>
+                <input type="text" class="log" placeholder="Password" required>
+                <p><button onclick="loginuser()" class="loginuser1">Log-in</button><a style="padding: 5px 5px; border: solid;" onclick="loginuser()" class="loginuser2">Log-in</a></p>
+                <p>Cannot log-in? Chat on Messenger for help.</p>
+                <button onclick="messenger()" class="messenger help1">Click to Chat for Help</button><a style="padding: 5px 5px; border: solid;" onclick="messenger()" class="help2">Click to Chat for Help</a>
+            </form>
+        </section>
+    </body>
+
+    <footer>
+        <div class="copyright">
+            &copy; Copyright <em><span>The GL Instructions</span></em>, the nickname for <strong><span>The Gladys Lacia Instructional Website</span></strong>. All Rights Reserved.
+        </div>
+        <div class="credit">
+            Hosted by <u><a href="https://www.infinityfree.net/">InfinityFree</a></u> with PHP and MySQL.
+        </div>
+    </footer>
+</html>
