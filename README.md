@@ -1,5 +1,5 @@
 ## gladyslacia.github.io
-### [Home](gladyslacia.github.io/index.html)
-### [Consultation](gladyslacia.github.io/consultation.html)
-### [Reach](gladyslacia.github.io/reach.html)
-### [Instructional Resources](gladyslacia.github.io/materials.html)
+### [Home](https://gladyslacia.github.io/index.html)
+### [Consultation](https://gladyslacia.github.io/consultation.html)
+### [Reach](https://gladyslacia.github.io/reach.html)
+### [Instructional Resources](https://gladyslacia.github.io/materials.html)
