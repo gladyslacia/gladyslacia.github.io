@@ -5,6 +5,6 @@
 ### [Instructional Resources](https://gladyslacia.github.io/materials.html)
 <details>
 <summary>Hidden Pages</summary>
-<a href="https://gladyslacia.github.io/classrecords.html">Class Records</a>
+<a href="https://gladyslacia.github.io/classrecords.html">Class Records</a><br>
 <a href="https://gladyslacia.github.io/lecturenotes.html">Lecture Notes</a>
 </details>
