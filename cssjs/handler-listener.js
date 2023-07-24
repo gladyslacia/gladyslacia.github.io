@@ -31,7 +31,7 @@ function enter() {
     var source1 = document.getElementById('lecturenotefilesid');
     if (lecturenotes == ''){
         document.getElementById('alert').innerHTML = 'Enter password!';
-        source1.src="https://gladyslacia.github.io/backend/gl-favicon.jpg";
+        source1.src="https://gladyslacia.github.io/cssjs/gl-favicon.jpg";
     } else if (lecturenotes == 'mathlectures'){
         document.getElementById('alert').innerHTML = 'Ok.';
         document.getElementById('lecturenotesid').value = '';
@@ -39,7 +39,7 @@ function enter() {
     } else {
         document.getElementById('alert').innerHTML = 'The password is not correct!';
         document.getElementById('lecturenotesid').value = '';
-        source1.src="https://gladyslacia.github.io/backend/gl-favicon.jpg";
+        source1.src="https://gladyslacia.github.io/cssjs/gl-favicon.jpg";
     }
 }
 
@@ -48,7 +48,7 @@ function get() {
     var source2 = document.getElementById('reviewerfilesid');
     if (reviewers == ''){
         document.getElementById('alert').innerHTML = 'Enter password!';
-        source2.src="https://gladyslacia.github.io/backend/gl-favicon.jpg";
+        source2.src="https://gladyslacia.github.io/cssjs/gl-favicon.jpg";
     } else if (reviewers == 'mathreviews'){
         document.getElementById('alert').innerHTML = 'Ok.';
         document.getElementById('reviewersid').value = '';
@@ -56,6 +56,6 @@ function get() {
     } else {
         document.getElementById('alert').innerHTML = 'The password is not correct!';
         document.getElementById('reviewersid').value = '';
-        source2.src="https://gladyslacia.github.io/backend/gl-favicon.jpg";
+        source2.src="https://gladyslacia.github.io/cssjs/gl-favicon.jpg";
     }
 }
