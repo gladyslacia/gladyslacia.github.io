@@ -38,7 +38,7 @@ header li{
 }
 .headeralter{
     color: white;
-    background-image: url("../backend/background.png");
+    background-image: url("../cssjs/background.png");
     background-size: contain;
     background-position: center;
     background-color: #151b54;
@@ -64,7 +64,7 @@ iframe{
 
 /* Home */
 .home{
-    background-image: url("../backend/background.png");
+    background-image: url("../cssjs/background.png");
     background-size: contain;
     background-position: center;
     background-color: #151b54;
@@ -129,7 +129,7 @@ iframe{
 
 /* Google Classroom */
 .classes{
-    background-image: url("../backend/background.png");
+    background-image: url("../cssjs/background.png");
     background-size: contain;
     background-position: center;
     background-color: #151b54;
@@ -155,7 +155,7 @@ iframe{
 
 /* Lecture Notes */
 .lectures{
-    background-image: url("../backend/background.png");
+    background-image: url("../cssjs/background.png");
     background-size: contain;
     background-position: center;
     background-color: #151b54;
@@ -179,7 +179,7 @@ iframe{
 
 /* Reviewers */
 .reviews{
-    background-image: url("../backend/background.png");
+    background-image: url("../cssjs/background.png");
     background-size: contain;
     background-position: center;
     background-color: #151b54;
