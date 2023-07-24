@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="google-site-verification" content="2tLOIrcsBoxIOfSh1JB7jJbub9I-Ndj_V2v9b2QzBx8" />
+        <meta name="referrer" content="strict-origin-when-cross-origin">
+
+        <meta property="og:title" content="The GL Instructions">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://gladyslacia.github.io/">
+        <meta property="og:description" content="The Gladys Lacia Instructional Website">
+
+        <meta itemprop="name" content="The GL Instructions">
+        <meta itemprop="description" content="The Gladys Lacia Instructional Website">
+        <meta itemprop="url" content="https://gladyslacia.github.io/">
+        <meta itemprop="thumbnailUrl" content="https://gladyslacia.github.io/for.gl.instructions/gl-favicon.jpg">
+        <meta itemprop="image" content="https://gladyslacia.github.io/for.gl.instructions/gl-favicon.jpg">
+        <meta itemprop="imageUrl" content="https://gladyslacia.github.io/for.gl.instructions/gl-favicon.jpg">
+
+        <meta property="og:image" content="https://gladyslacia.github.io/for.gl.instructions/gl-favicon.jpg">
+
+        <title>The GL Instructions</title>
+
+        <!-- Favicon -->
+        <link href="https://gladyslacia.github.io/for.gl.instructions/gl-favicon.jpg" rel="icon">
+
+        <!-- Style and Function -->
+        <link href="https://gladyslacia.github.io/for.gl.instructions/style.css" rel="stylesheet">
+        <script src="https://gladyslacia.github.io/for.gl.instructions/function.js"></script>
+        <script src="https://gladyslacia.github.io/for.gl.instructions/handler-listener.js"></script>
+    </head>
+    <body>
+        <header class="headermain">
+            <h1>The Gladys Lacia Instructional Website</h1>
+            <nav>
+                <ul>
+                    <li onclick="home()">Home</li>
+                    <li onclick="classes()">Google Classroom</li>
+                    <li onclick="lectures()" class="active1">Lecture Notes</li>
+                    <li onclick="reviews()">Reviewers</li>
+                </ul>
+            </nav>
+        </header>
+        <section class="lectures">
+            <div class="headeralt">
+                <h1>The Gladys Lacia Instructional Website</h1>
+                <p><a style="padding: 5px 5px; border: solid;" onclick="home()">Home</a>
+                    <a style="padding: 5px 5px; border: solid;" onclick="classes()">Google Classroom</a></p>
+                <p><a style="padding: 5px 5px; border: solid;" onclick="lectures()" class="active2">Lecture Notes</a>
+                    <a style="padding: 5px 5px; border: solid;" onclick="reviews()">Reviewers</a></p>
+            </div>
+            <div class="intro">
+                <em>By Ms. Gladys Lacia, LPT</em><br>
+                <em>Developer, Programmer, and Teacher</em>
+            </div>
+            <div class="lecturenotes">
+                <h2>Lecture Notes</h2>
+                <em>All lecture notes are encrypted with password.</em>
+                <form action="#" method="GET">
+                <br><input type="text" class="typeset4" placeholder="Password" id="lecturenotesid">
+                <a class="enter-alterbutton" onclick="enter()">Enter</a>
+                </form><br>
+                <em id="alert">Enter password!</em>
+            </div>
+            <div class="lecturenotefiles">
+                <br><em>You can only see this if your password is correct.</em><br><br>
+                <iframe src="https://gladyslacia.github.io/backend/gl-favicon.jpg" id="lecturenotefilesid" frameborder="0"></iframe>
+            </div>
+        </section>
+    </body>
+    <footer>
+        <div class="copyright">
+            &copy; Copyright <em><span>The GL Instructions</span></em>, the nickname for <strong><span>The Gladys Lacia Instructional Website</span></strong>. All Rights Reserved.
+        </div>
+    </footer>
+</html>
