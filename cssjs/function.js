@@ -18,16 +18,4 @@ function messenger() {
 }
 
 /** for email */
-// Function to update the _subject field based on the user's email
-function updateSubject() {
-    const emailInput = document.getElementById("emailInput");
-    const subjectInput = document.querySelector('input[name="_subject"]');
-    
-    const user_email = emailInput.value;
-    const newSubjectValue = 'Inquiry: From ${user_email}';
-    
-    subjectInput.value = newSubjectValue;
-  }
-
-  // Event listener to trigger the updateSubject function when the email input changes
-  document.getElementById("emailInput").addEventListener("change", updateSubject);
+/** soon to update */
