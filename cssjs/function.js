@@ -23,11 +23,9 @@ function updateSubject() {
     const emailInput = document.getElementById("emailInput");
     const subjectInput = document.querySelector('input[name="_subject"]');
     
-    // Replace the placeholder {user_email} with the user's email
     const user_email = emailInput.value;
-    const newSubjectValue = subjectInput.value.replace("{user_email}", user_email);
+    const newSubjectValue = 'Inquiry: From ${user_email}';
     
-    // Update the _subject field with the new value
     subjectInput.value = newSubjectValue;
   }
 
