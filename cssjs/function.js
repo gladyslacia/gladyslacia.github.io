@@ -42,4 +42,8 @@ function inquirymail2() {
     form2.appendChild(emailsubject4gl2);
 }
 
+// Set the form submissions to directly call the respective functions
+document.querySelector('.inquirymail1 form').onsubmit = inquirymail1;
+document.querySelector('.inquirymail2 form').onsubmit = inquirymail2;
+
 /** soon to update */
