@@ -16,3 +16,8 @@ function reviews() {
 function messenger() {
     window.open("https://m.me/gl.gladyslacia/");
 }
+
+/** for email */
+function emailsubject() {
+    document.getElementById('emailaddressid').value;
+}
