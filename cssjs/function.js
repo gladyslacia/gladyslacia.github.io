@@ -19,4 +19,6 @@ function messenger() {
 
 /** for email */
 var emailaddress = document.getElementById('emailaddressid').value;
-emailaddress.value = "Inquiry: From " + emailaddress;
+var emailsubjec1 = document.getElementById('emailsubjectid').value;
+var emailsubject2 = "Inquiry: From ";
+emailsubject1.value = emailsubject2 + emailaddress;
