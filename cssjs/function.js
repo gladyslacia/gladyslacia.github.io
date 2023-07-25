@@ -18,10 +18,18 @@ function messenger() {
 }
 
 /** for email */
-const emailInput = document.getElementById('emailaddressid');
-const subjectInput = document.getElementById('emailsubjectid');
-  emailInput.addEventListener('change', function() {
-    const userEmail = this.value;
-    const subjectValue = `Inquiry: From ${userEmail}`;
-    subjectInput.value = subjectValue;
-  });
+// Function to update the _subject field based on the user's email
+function updateSubject() {
+    const emailInput = document.getElementById("emailInput");
+    const subjectInput = document.querySelector('input[name="_subject"]');
+    
+    // Replace the placeholder {user_email} with the user's email
+    const user_email = emailInput.value;
+    const newSubjectValue = subjectInput.value.replace("{user_email}", user_email);
+    
+    // Update the _subject field with the new value
+    subjectInput.value = newSubjectValue;
+  }
+
+  // Event listener to trigger the updateSubject function when the email input changes
+  document.getElementById("emailInput").addEventListener("change", updateSubject);
