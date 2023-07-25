@@ -18,7 +18,10 @@ function messenger() {
 }
 
 /** for email */
-var emailaddress = document.getElementById('emailaddressid').value;
-var emailsubjec1 = document.getElementById('emailsubjectid').value;
-var emailsubject2 = "Inquiry: From ";
-emailsubject1.value = emailsubject2 + emailaddress;
+const emailInput = document.getElementById('emailaddressid');
+const subjectInput = document.getElementById('emailsubjectid');
+  emailInput.addEventListener('change', function() {
+    const userEmail = this.value;
+    const subjectValue = `Inquiry: From ${userEmail}`;
+    subjectInput.value = subjectValue;
+  });
