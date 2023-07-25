@@ -81,13 +81,12 @@
             </div>
             <div class="inquirymail1">
                 <h2>Send Email to Ms. Lacia for Inquiry</h2>
-                <form action="https://formsubmit.co/emailbox.gl+inquiry@gmail.com" method="POST">
-                    <input type="email" class="typeset1" name="email" placeholder="Your Email" required>
+                <form action="https://formsubmit.co/emailbox.gl+inquiry@gmail.com" method="POST" onsubmit="inquirymail()" autocomplete="off">
+                    <input type="email" class="typeset1" name="email" placeholder="Your Email" id="emailaddressid" required>
                     <input type="text" class="typeset1" name="name" placeholder="Given Name, Surname" required><br>
                     <textarea class="typeset2" name="message" placeholder="Message" required></textarea><br>
                     <button type="submit" class="inquirybutton">Send</button>
                     <input type="hidden" name="_template" value="basic">
-                    <input type="hidden" name="_subject" value="Inquiry: The GL Instructions">
                     <input type="hidden" name="_url" value="https://gladyslacia.github.io/index.html">
                     <input type="hidden" name="_autoresponse" value="Message recieved. Wait for her reply to this email notification within 24 hours.">
                 </form>
