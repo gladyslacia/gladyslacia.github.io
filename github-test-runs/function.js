@@ -1,4 +1,3 @@
-/** for test runs only */
 /** for navigation */
 function home() {
     location.href="index.html";
@@ -18,12 +17,12 @@ function messenger() {
     window.open("https://m.me/gl.gladyslacia/");
 }
 
-/** for email */
-function setEmailSubject() {
-    const userEmail = document.getElementById('userEmail').value;
-    const subjectField = document.createElement('input');
-    subjectField.type = 'hidden';
+/** for test runs only */
+function setEmailSubject() { /** inquirymail() */
+    const userEmail = document.getElementById('userEmail').value; /** emailaddress, emailaddressid */
+    const subjectField = document.createElement('input'); /** emailsubject4gl */
+    subjectField.type = 'hidden'; /** emailsubject4gl.type */
     subjectField.name = '_subject';
     subjectField.value = 'Inquiry: From ' + userEmail;
-    document.querySelector('form').appendChild(subjectField);
+    document.querySelector('form').appendChild(subjectField); /** emailsubject4gl */
 }
