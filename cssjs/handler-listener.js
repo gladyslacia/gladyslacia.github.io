@@ -24,7 +24,11 @@ function join() {
         document.getElementById('joinalert5').innerHTML = 'You can see the code only if you enter the correct password.';
         document.getElementById('classcodeid').value = '';
     }
-}
+} function joinkey(event) {
+    if (event.key === 'Enter') {
+        join();
+    }
+} document.addEventListener('keydown', joinkey);
 
 function enter() {
     var lecturenotes = document.getElementById('lecturenotesid').value;
@@ -41,7 +45,11 @@ function enter() {
         document.getElementById('lecturenotesid').value = '';
         source1.src="https://gladyslacia.github.io/cssjs/gl-favicon.jpg";
     }
-}
+} function enterkey(event) {
+    if (event.key === 'Enter') {
+        enter();
+    }
+} document.addEventListener('keydown', enterkey);
 
 function get() {
     var reviewers = document.getElementById('reviewersid').value;
@@ -58,4 +66,8 @@ function get() {
         document.getElementById('reviewersid').value = '';
         source2.src="https://gladyslacia.github.io/cssjs/gl-favicon.jpg";
     }
-}
+} function getkey(event) {
+    if (event.key === 'Enter') {
+        get();
+    }
+} document.addEventListener('keydown', getkey);
