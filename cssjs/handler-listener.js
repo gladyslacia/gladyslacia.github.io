@@ -28,7 +28,7 @@ function join() {
     if (event.key === 'Enter') {
         join();
     }
-} document.addEventListener('keydown', joinkey);
+} document.addEventListener('keypress', joinkey);
 
 function enter() {
     var lecturenotes = document.getElementById('lecturenotesid').value;
@@ -49,7 +49,7 @@ function enter() {
     if (event.key === 'Enter') {
         enter();
     }
-} document.addEventListener('keydown', enterkey);
+} document.addEventListener('keypress', enterkey);
 
 function get() {
     var reviewers = document.getElementById('reviewersid').value;
@@ -70,4 +70,4 @@ function get() {
     if (event.key === 'Enter') {
         get();
     }
-} document.addEventListener('keydown', getkey);
+} document.addEventListener('keypress', getkey);
