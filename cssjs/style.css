@@ -47,9 +47,10 @@ header li{
     padding-bottom: 25px;
 }
 iframe{
-    width: 100%;
+    width: 98vw;
     height: 555px;
     background-color: #FAF9F6;
+    margin-left: -42px;
 }
 
 /* Navigation */
