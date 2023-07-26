@@ -29,7 +29,6 @@ function inquirymail1() {
     const form1 = document.querySelector('.inquirymail1 form');
     form1.appendChild(emailsubject4gl1);
 }
-
 function inquirymail2() {
     const emailaddress2 = document.getElementById('emailaddressid2').value;
     const emailsubject4gl2 = document.createElement('input');
@@ -41,7 +40,6 @@ function inquirymail2() {
     const form2 = document.querySelector('.inquirymail2 form');
     form2.appendChild(emailsubject4gl2);
 }
-
 // Set the form submissions to directly call the respective functions
 document.querySelector('.inquirymail1 form').onsubmit = inquirymail1;
 document.querySelector('.inquirymail2 form').onsubmit = inquirymail2;
