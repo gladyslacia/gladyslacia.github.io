@@ -29,5 +29,5 @@ function inquirymail2() {
 }
 // Set the form submissions to directly call the respective functions
 const form1exists = document.querySelector('.inquirymail1 form'); if (form1exists){form1exists.onsubmit = inquirymail1;}
-const form2exists = document.querySelector('.inquirymail2 form'); if (form2exists){form1exists.onsubmit = inquirymail2;}
+const form2exists = document.querySelector('.inquirymail2 form'); if (form2exists){form2exists.onsubmit = inquirymail2;}
 });
