@@ -7,7 +7,7 @@ function join() {
       source0.src="https://gladyslacia.github.io/cssjs/gl-favicon.jpg";
     } else if (classcode == 'googleplex'){
       alertmsg.innerHTML = 'Ok.';
-      source0.src="markdown/classcodelist.md";
+      source0.src="markdown/classcodelist";
     } else {
       alertmsg.innerHTML = 'The password is not correct!';
       source0.src="https://gladyslacia.github.io/cssjs/gl-favicon.jpg";
