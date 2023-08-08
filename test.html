@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Data Form</title>
+    <script src="test.js"></script>
+</head>
+<body>
+    <div class="inquirymail1">
+    <h2>Send Email to Ms. Lacia for Inquiry</h2>
+                <form action="https://form2channel.com/?form=sample_gsheet" method="POST" onsubmit="inquirymail1()" autocomplete="off">
+                    <input type="email" class="typeset1" name="email" placeholder="Your Email" id="emailaddressid1" required>
+                    <input type="text" class="typeset1" name="name" placeholder="Given Name, Surname" required><br>
+                    <textarea class="typeset2" name="message" placeholder="Message" required></textarea><br>
+                    <button type="submit" class="inquirybutton">Send</button>
+                    <!-- <input type="hidden" name="_template" value="basic"> -->
+                    <input type="hidden" name="formto_googlesheets" value="emaildivert.gladyslacia@gmail.com">
+                    <input type="hidden" name="_url" value="https://gladyslacia.github.io/test.html">
+                    <input type="hidden" name="_autoresponse" value="Message received. Wait for her reply to this email notification within 24 hours.">
+                </form>
+    </div>
+</body>
+</html>
