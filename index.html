@@ -1,124 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, maximum-scale=1.0">
-        
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="google-site-verification" content="2tLOIrcsBoxIOfSh1JB7jJbub9I-Ndj_V2v9b2QzBx8" />
-        <meta name="referrer" content="strict-origin-when-cross-origin">
-
-        <meta property="og:title" content="The GL Instructions">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://gladyslacia.github.io/">
-        <meta property="og:description" content="The Gladys Lacia Instructional Website">
-
-        <meta itemprop="name" content="The GL Instructions">
-        <meta itemprop="description" content="The Gladys Lacia Instructional Website">
-        <meta itemprop="url" content="https://gladyslacia.github.io/">
-        <meta itemprop="thumbnailUrl" content="cssjs/gl-favicon.jpg">
-        <meta itemprop="image" content="cssjs/gl-favicon.jpg">
-        <meta itemprop="imageUrl" content="cssjs/gl-favicon.jpg">
-
-        <meta property="og:image" content="cssjs/gl-favicon.jpg">
-
-        <title>The GL Instructions</title>
-
-        <!-- Favicon -->
-        <link href="cssjs/gl-favicon.jpg" rel="icon">
-
-        <!-- Style and Function -->
-        <link href="cssjs/style.css" rel="stylesheet">
-        <script src="cssjs/function.js"></script>
-
-    </head>
-    <body>
-        <header class="headermain">
-            <h1>The Gladys Lacia Instructional Website</h1>
-            <nav>
-                <ul>
-                    <li onclick="home()" class="active1">Home</li>
-                    <li onclick="classes()">Google Classroom</li>
-                    <li onclick="lectures()">Lecture Notes</li>
-                    <li onclick="reviews()">Reviewers</li>
-                </ul>
-            </nav>
-        </header>
-        <section class="home">
-            <div class="headeralt">
-                <h1>The Gladys Lacia Instructional Website</h1>
-                <p><a style="padding: 5px 5px; border: solid;" onclick="home()" class="active2">Home</a>
-                    <a style="padding: 5px 5px; border: solid;" onclick="classes()">Google Classroom</a></p>
-                <p><a style="padding: 5px 5px; border: solid;" onclick="lectures()">Lecture Notes</a>
-                    <a style="padding: 5px 5px; border: solid;" onclick="reviews()">Reviewers</a></p>
-            </div>
-            <div class="intro">
-                <em>By Ms. Gladys Lacia, LPT</em><br>
-                <em>Developer, Programmer, and Teacher</em>
-            </div>
-            <div class="service">
-                <h2>Services</h2>
-                <ul>
-                    <li>&#x2713; MTAP Reviews (<em>for all grade levels</em>)</li>
-                    <li>&#x2713; Junior High School Mathematics</li>
-                    <li>&#x2713; Senior High School Mathematics</li>
-                    <li>&#x2713; SAT Mathematics</li>
-                    <li>&#x2713; College Mathematics</li>
-                    <li>&#x2713; Civil Service Mathematics Reviews</li>
-                    <li>&#x2713; LET Mathematics Majorship</li>
-                </ul>
-            </div>
-            <div class="messenger1">
-                <h2>Messenger</h2>
-                <em>Contact Ms. Lacia through Messenger.</em>
-                <ul>
-                    <li><button onclick="messenger()" class="reachbutton">Click to Chat</button></li>
-                </ul>
-            </div>
-            <div class="messenger2">
-                <h2>Messenger</h2>
-                <em>Contact Ms. Lacia through Messenger.</em><br><br>
-                <button onclick="messenger()" class="reachbutton">Click to Chat</button>
-            </div>
-            <div class="inquirymail1">
-                <h2>Send Email to Ms. Lacia for Inquiry</h2>
-                <form action="https://formsubmit.co/emailbox.gl+inquiry@gmail.com" method="POST" onsubmit="inquirymail1()" autocomplete="off">
-                    <input type="email" class="typeset1" name="email" placeholder="Your Email" id="emailaddressid1" required>
-                    <input type="text" class="typeset1" name="name" placeholder="Given Name, Surname" required><br>
-                    <textarea class="typeset2" name="message" placeholder="Message" required></textarea><br>
-                    <button type="submit" class="inquirybutton">Send</button>
-                    <input type="hidden" name="_template" value="basic">
-                    <input type="hidden" name="_url" value="https://gladyslacia.github.io/index.html">
-                    <input type="hidden" name="_autoresponse" value="Message received. Wait for her reply to this email notification within 24 hours.">
-                </form>
-            </div>                
-            <div class="inquirymail2">
-                <h2>Send Email to Ms. Lacia for Inquiry</h2>
-                <form action="https://formsubmit.co/emailbox.gl+inquiry@gmail.com" method="POST" onsubmit="inquirymail2()" autocomplete="off">
-                    <input type="email" class="typeset1" name="email" placeholder="Your Email" id="emailaddressid2" required><br>
-                    <input type="text" class="typeset1" name="name" placeholder="Given Name, Surname" required><br>
-                    <textarea class="typeset3" name="message" placeholder="Message" required></textarea><br>
-                    <button type="submit" class="inquirybutton">Send</button>
-                    <input type="hidden" name="_template" value="basic">
-                    <input type="hidden" name="_url" value="https://gladyslacia.github.io/index.html">
-                    <input type="hidden" name="_autoresponse" value="Message received. Wait for her reply to this email notification within 24 hours.">
-                </form>
-            </div>            
-            <div class="history">
-                <h3>About: History of the Website</h3>
-                <p><strong>The Gladys Lacia Instructional Website</strong>
-                    was created in Google Sites on July 2020 <u>to provide online instructions
-                    and downloadable resources</u> for her students during the COVID-19 pandemic.
-                    Three years later, on April 2023, this website is being upgraded using
-                    HTML, CSS and Javascript programming languages.
-                    This website <strong>has been operated semi-annually by Ms. Lacia herself
-                    since September 2020</strong>.</p>
-            </div>
-        </section>
-    </body>
-    <footer>
-        <div class="copyright">
-            &copy; Copyright <em><span>The GL Instructions</span></em>, the nickname for <strong><span>The Gladys Lacia Instructional Website</span></strong>. All Rights Reserved.
-        </div>
-    </footer>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gladys Lacia</title>
+<style>
+body {
+background-color: #FFFFF0;
+margin: 12.5pt;
+font-size: 12.5pt;
+font-family: Arial, sans-serif;
+line-height: 1.6;
+}
+.container {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+.photo {
+width: 150px;
+height: 150px;
+border-radius: 50%;
+object-fit: cover;
+margin-bottom: 10px;
+}
+.name {
+font-size: 30pt;
+margin-bottom: 5px;
+}
+.email {
+font-size: 20pt;
+margin-bottom: 5px;
+}
+.phone {
+font-size: 15pt;
+}
+.contact {
+font-size: 12.5pt;
+}
+.rounded-rectangle {
+background-color: #FFFFFF;
+border: 3pt solid #0FFFFF;
+border-radius: 10px;
+padding: 15px;
+margin-top: 20pt;
+width: 80%;
+box-sizing: border-box;
+}
+.section-title {
+font-size: 20pt;
+text-align: center;
+margin-bottom: 10px;
+}
+.section-content {
+font-size: 15pt;
+text-align: center;
+text-align: justify;
+margin-bottom: 15px;
+}
+.service-item {
+text-align: left;
+margin-bottom: 15px;
+}
+.service-description {
+font-size: 15pt;
+text-align: justify;
+}
+.experience-item, .education-item {
+text-align: left;
+margin-bottom: 20px;
+}
+.item-title {
+font-size: 17.5pt;
+margin-bottom: 5px;
+}
+.company, .university {
+font-size: 15pt;
+font-style: italic;
+margin-bottom: 5px;
+}
+.dates, .years {
+font-size: 15pt;
+font-style: italic;
+margin-bottom: 10px;
+}
+.item-description {
+font-size: 15pt;
+text-align: justify;
+}
+.license-item, .certification-item {
+text-align: left;
+margin-bottom: 20px;
+}
+.agency, .when {
+font-size: 15pt;
+font-style: italic;
+margin-bottom: 5px;
+}
+.project-item, .course-item {
+text-align: left;
+margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+body {
+margin: 10pt;
+font-size: 11pt;
+}
+.name {
+font-size: 24pt;
+}
+.email {
+font-size: 16pt;
+}
+.rounded-rectangle {
+width: 95%;
+padding: 10px;
+}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div style="margin-bottom: 20pt;"></div>
+<img src="gladyslacia1.jpg" alt="GLADYS LACIA" class="photo">
+<div class="name">GLADYS LACIA</div>
+<div class="email">onbizgladyslacia@gmail.com</div>
+<div class="phone">WhatsApp &#128222; +639813590568</div>
+<div class="contact">
+    Profile &#128269; <a href="https://linkedin.com/in/jobhuntgladyslacia" target="_blank" rel="noopener noreferrer">linkedin.com/in/jobhuntgladyslacia</a>
+</div>
+<div style="margin-top: 20pt;"></div>
+<div class="rounded-rectangle">
+<div class="section-title">About</div>
+<div class="section-content">
+    Data-driven and results-oriented professional with a background in mathematics, no longer in the teaching career and applying analytical skills to the field of Data Science, now pursuing a career as a Data Analyst in Luzon.  My teaching experience in curriculum development, lesson planning, and student assessment has sharpened my ability to explain complex concepts clearly, a weighty skill in data analysis and interpretation. This career shifter well-suited for market research and can handle real-world business challenges.
+</div>
+</div>
+<!-- <div style="margin-top: 20pt;"></div>
+<div class="rounded-rectangle">
+<div class="section-title">Services</div>
+<div class="service-item">
+<span class="item-title">&#128241; Service 1</span>
+<div class="service-description">
+The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+</div>
+</div>
+<div class="service-item">
+<span class="item-title">&#128241; Service 2</span>
+<div class="service-description">
+The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+</div>
+</div>
+</div> -->
+<div style="margin-top: 20pt;"></div>
+<div class="rounded-rectangle">
+<div class="section-title">Experience</div>
+<div class="experience-item">
+    <div class="item-title">&#128188; Online Tutor</div>
+    <div class="company"><i><a href="https://www.teacheron.com" target="_blank" rel="noopener noreferrer">TeacherOn.com</a></i></div>
+    <div class="dates"><i>October 2024 - Present</i></div>
+    <div class="item-description">
+        -
+    </div>
+    </div>
+<div class="experience-item">
+<div class="item-title">&#128188; Content Writer</div>
+<div class="company"><i>Freelance, Cagayan de Oro</i></div>
+<div class="dates"><i>January 2023 - September 2024</i></div>
+<div class="item-description">
+    Specializing in articles and blogs across multiple disciplines such as Humanities (Literature, History, Arts & Culture), Social Sciences (Education, Sociology, International Relations), and Interdisciplinary Studies (Digital Humanities, Science Communication, Global Studies).
+</div>
+</div>
+<div class="experience-item">
+<div class="item-title">&#128188; Mathematics Instructor</div>
+<div class="company"><i>Medina Foundation College of Sapang Dalaga, Inc.</i></div>
+<div class="dates"><i>June 2020 - December 2022</i></div>
+<div class="item-description">
+1. Mentored ABM students for three semesters, improving their mathematics skills and business knowledge through personalized consultations and resources.
+<br>
+2. Taught Grade 11 Mathematics to ABM and STEM students, delivering comprehensive mathematics instruction in both the ABM and STEM strands.
+<br>
+3. Consulted GAS and ABM students on research projects, guiding them from formulating research questions and developing methodologies to analyzing data and presenting findings.
+</div>
+</div>
+<div class="experience-item">
+<div class="item-title">&#128188; High School Teacher</div>
+<div class="company"><i>Liberation Institute, Inc.</i></div>
+<div class="dates"><i>July 2018 - April 2019</i></div>
+<div class="item-description">
+1. Mentored forty Grade 8 students for two semesters, fostering academic and social skills through a positive and supportive learning environment.
+<br>
+2. Taught Grade 7-8 Mathematics, building a strong mathematical foundation through engaging activities and assessments in quizzes, tests, and projects.
+<br>
+3. Coached six students for district-level Grade 7-8 Mathematics competitions, improving their skills, confidence, and test-taking strategies through intensive sessions.
+</div>
+</div>
+</div>
+<div style="margin-top: 20pt;"></div>
+<div class="rounded-rectangle">
+<div class="section-title">Education</div>
+<div class="education-item">
+<div class="item-title">&#127891; Bachelor of Science in Mathematics</div>
+<div class="university"><i>College of Science and Mathematics, Mindanao State University - Iligan Institute of technology</i></div>
+<div class="years"><i>2014 - 2018</i></div>
+<div class="item-description">
+-
+</div>
+</div>
+<!-- <div class="education-item">
+<div class="item-title">&#127891; Education 2</div>
+<div class="university"><i>University</i></div>
+<div class="years"><i>Years</i></div>
+<div class="item-description">
+The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+</div>
+</div> -->
+</div>
+<div style="margin-top: 20pt;"></div>
+<div class="rounded-rectangle">
+<div class="section-title">Licenses and Certifications</div>
+<div class="license-item">
+<div class="item-title">&#11088; <a href="https://cert.efset.org/KiE1vu" target="_blank" rel="noopener noreferrer">English Certificate 65/100 (C1 Advanced)</a></div>
+<div class="agency"><i>EF SET</i></div>
+<div class="dates"><i>February 2025</i></div>
+<div class="item-description">
+    The achieved level is <b>65/100</b> on the EF SET score scale and <b>C1 Advanced</b> according to the Common European Framework of Reference (CEFR). The EF SET score is calculated as an average of the skill section scores.
+</div>
+</div>
+<!-- <div class="certification-item">
+<div class="item-title">&#11088; Certification 2</div>
+<div class="agency"><i>Agency</i></div>
+<div class="dates"><i>Date</i></div>
+<div class="item-description">
+The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+</div>
+</div> -->
+</div>
+<div style="margin-top: 20pt;"></div>
+<div class="rounded-rectangle">
+<div class="section-title">Projects</div>
+<div class="project-item">
+<div class="item-title">&#128194; <a href="https://geemonthly.blogspot.com" target="_blank" rel="noopener noreferrer">Gee, Your Blog Writer for Monthly Updates</a></div>
+<div class="when"><i>March 2020 - Present</i></div>
+<div class="item-description">
+    Blog Writing Training Project
+    <br>
+    An In-Depth Blog at the Most Dynamic Global Trends in Economics, Science, Technology, Culture, and Society
+</div>
+</div>
+<!-- <div class="project-item">
+<div class="item-title">&#128194; Project 2</div>
+<div class="when"><i>When?</i></div>
+<div class="item-description">
+The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+</div>
+</div> -->
+</div>
+<div style="margin-top: 20pt;"></div>
+<div class="rounded-rectangle">
+<div class="section-title">Courses</div>
+<div class="course-item">
+<div class="item-title">&#128214; Subject 1</div>
+<div class="item-description">
+-
+</div>
+</div>
+<div class="course-item">
+<div class="item-title">&#128214; Subject 2</div>
+<div class="item-description">
+-
+</div>
+</div>
+</div>
+<div style="margin-top: 20pt;"></div>
+</div>
+</body>
 </html>
