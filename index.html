@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Gladys Lacia</title>
+
 <style>
   :root {
     --font-family-base: "Inter", sans-serif;
@@ -13,7 +14,8 @@
   *, *::before, *::after { box-sizing: border-box; }
 
   body {
-    font-family: var(--font-family-base), Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: var(--font-family-base), Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     line-height: 1.6;
     background: #fff;
     color: #000;
@@ -54,6 +56,12 @@
     font-size: 14px;
     cursor: pointer;
     white-space: nowrap;
+    transition: background 0.2s ease-in-out;
+  }
+
+  /* ⭐ HOVER ONLY FOR "who am I?" BUTTON */
+  #whoami-btn:hover {
+    background: #108a00;
   }
 
   .profile {
@@ -70,7 +78,7 @@
     object-fit: cover;
     border-radius: 50%;
     flex: 0 0 auto;
-    border: 7px solid #108a00; /* added */
+    border: 7px solid #108a00;
   }
 
   .details {
@@ -99,14 +107,22 @@
   }
 
   @media (max-width: 900px) {
-    .container { margin-left: 40px; margin-right: 40px; max-width: calc(100% - 80px); }
+    .container {
+      margin-left: 40px;
+      margin-right: 40px;
+      max-width: calc(100% - 80px);
+    }
     .profile { gap: 14px; }
     .profile img { width: 120px; height: 120px; }
     .details h1 { font-size: 24px; }
   }
 
   @media (max-width: 600px) {
-    .container { margin-left: 20px; margin-right: 20px; max-width: calc(100% - 40px); }
+    .container {
+      margin-left: 20px;
+      margin-right: 20px;
+      max-width: calc(100% - 40px);
+    }
     .top-menu { gap: 10px; justify-content: flex-start; }
     .top-menu-wrapper { justify-content: flex-start; }
     .profile { flex-direction: column; align-items: flex-start; }
@@ -114,12 +130,13 @@
     .details h1 { font-size: 22px; }
   }
 </style>
+
 </head>
 <body>
 
   <div class="top-menu-wrapper">
     <div class="top-menu">
-      <button class="menu-btn">who am I?</button>
+      <button class="menu-btn" id="whoami-btn">who am I?</button>
       <button class="menu-btn">what have I done?</button>
       <button class="menu-btn">what have I learned?</button>
       <button class="menu-btn">what can I do?</button>
@@ -132,7 +149,10 @@
       <img src="https://gladyslacia.github.io/assets/profilepicture1.jpg" alt="Profile Photo" />
       <div class="details">
         <h1>GLADYS LACIA</h1>
-        <p class="contact-line">Freelancer, dgdfvvgfdfvdfg vgervgergv vrrg vrdgvdgbe vrgdve stvesrgv vsgrbvdxrtbvsd vbsdbdbvdbv bfvdbvdxbgvc</p>
+        <p class="contact-line">
+          Freelancer, dgdfvvgfdfvdfg vgervgergv vrrg vrdgvdgbe vrgdve stvesrgv vsgrbvdxrtbvsd
+          vbsdbdbvdbv bfvdbvdxbgvc
+        </p>
         <p class="contact-line">onbizgladyslacia@gmail.com</p>
         <p class="contact-line">Upwork: 01496f55ce7a5e12b1</p>
         <p class="contact-line">OLJ: 3977015 (OnlineJobs.ph)</p>
@@ -141,5 +161,6 @@
     </div>
 
   </div>
+
 </body>
 </html>
