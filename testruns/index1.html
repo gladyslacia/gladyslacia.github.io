@@ -1,167 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gladys Lacia</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gladys Lacia</title>
 
-<style>
-  :root {
-    --font-family-base: "Inter", sans-serif;
-    --primary-color: #024570;
-    --hover-color: #108a00; /* unified hover color */
-  }
-
-  *, *::before, *::after { box-sizing: border-box; }
-
-  body {
-    font-family: var(--font-family-base), Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    line-height: 1.6;
-    background: #fff;
-    color: #000;
-    padding: 20px;
-    margin: 0;
-  }
-
-  .container {
-    margin-left: 170px;
-    margin-right: 170px;
-    max-width: calc(100% - 340px);
-  }
-
-  .section {
-    margin: 30px 0;
-  }
-
-  .top-menu-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0;
-  }
-
-  .top-menu {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .menu-btn {
-    background: var(--primary-color);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 25px;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background 0.2s ease-in-out;
-  }
-
-  /* ⭐ All menu buttons hover effect unified */
-  .menu-btn:hover {
-    background: var(--hover-color);
-  }
-
-  .profile {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .profile img {
-    width: 150px;
-    height: 150px;
-    max-width: 30vw;
-    max-height: 30vw;
-    object-fit: cover;
-    border-radius: 50%;
-    flex: 0 0 auto;
-    border: 7px solid #108a00;
-  }
-
-  .details {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .details h1 {
-    margin: 0 0 7px 0;
-    font-size: 28px;
-    font-weight: 700;
-    color: #000;
-  }
-
-  .details p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.4;
-  }
-
-  .contact-line { word-break: break-word; }
-
-  @media (min-width: 1400px) {
-    .profile img { width: 170px; height: 170px; }
-    .details h1 { font-size: 34px; }
-  }
-
-  @media (max-width: 900px) {
-    .container {
-      margin-left: 40px;
-      margin-right: 40px;
-      max-width: calc(100% - 80px);
+  <style>
+    :root {
+      --primary: #024570;
+      --accent: #108a00;
+      --font: Arial, sans-serif;
     }
-    .profile { gap: 14px; }
-    .profile img { width: 120px; height: 120px; }
-    .details h1 { font-size: 24px; }
-  }
 
-  @media (max-width: 600px) {
-    .container {
-      margin-left: 20px;
-      margin-right: 20px;
-      max-width: calc(100% - 40px);
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: var(--font);
+      line-height: 1.6;
+      background: #fff;
+      color: #000;
     }
-    .top-menu { gap: 10px; justify-content: flex-start; }
-    .top-menu-wrapper { justify-content: flex-start; }
-    .profile { flex-direction: column; align-items: flex-start; }
-    .profile img { width: 110px; height: 110px; }
-    .details h1 { font-size: 22px; }
-  }
-</style>
 
+    .top-menu-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .top-menu {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .menu-btn, .niche-btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      outline: none;
+      transition: background .15s, transform .08s;
+      white-space: nowrap;
+    }
+
+    .menu-btn:not(#homeBtn):hover,
+    .menu-btn:not(#homeBtn):focus,
+    .menu-btn.active {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* niche button default */
+    .niche-btn {
+      background: #108a00 !important;
+      color: #fff;
+    }
+
+    /* niche button hover */
+    .niche-btn:hover,
+    .niche-btn:focus {
+      background: yellow !important;
+      color: black !important;
+      transform: translateY(-1px);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .profile {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .profile img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .details {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .details h1 {
+      margin: 0 0 8px 0;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .details p {
+      font-size: 15px;
+      word-break: break-word;
+    }
+
+    #details-content { margin: 0; }
+    #details-content p { margin: 0; }
+
+    #details-content .niche-btn {
+      margin-bottom: 7px;
+    }
+
+    @media (max-width: 600px) {
+      .profile {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .profile img {
+        width: 110px;
+        height: 110px;
+      }
+      .top-menu-wrapper {
+        justify-content: flex-start;
+      }
+    }
+  </style>
 </head>
-<body>
 
+<body>
   <div class="top-menu-wrapper">
-    <div class="top-menu">
-      <button class="menu-btn" >who am I?</button>
-      <button class="menu-btn">what have I done?</button>
-      <button class="menu-btn">what have I learned?</button>
-      <button class="menu-btn">what can I do?</button>
+    <div class="top-menu" id="topMenu" role="tablist" aria-label="Top navigation">
+      <button class="menu-btn" data-key="who" aria-pressed="false">who am I?</button>
+      <button class="menu-btn" data-key="done" aria-pressed="false">what have I done?</button>
+      <button class="menu-btn" data-key="learned" aria-pressed="false">what have I learned?</button>
+      <button class="menu-btn" data-key="can" aria-pressed="false">what can I do?</button>
     </div>
   </div>
 
   <div class="container">
+    <div class="profile">
+      <img src="https://gladyslacia.github.io/assets/profilepicture1.jpg" alt="Gladys Lacia" />
 
-    <div class="section profile">
-      <img src="https://gladyslacia.github.io/assets/profilepicture1.jpg" alt="Profile Photo" />
-      <div class="details">
+      <div class="details" id="details">
         <h1>GLADYS LACIA</h1>
-        <p class="contact-line">
-          Freelancer, dgdfvvgfdfvdfg vgervgergv vrrg vrdgvdgbe vrgdve stvesrgv vsgrbvdxrtbvsd
-          vbsdbdbvdbv bfvdbvdxbgvc
-        </p>
-        <p class="contact-line">onbizgladyslacia@gmail.com</p>
-        <p class="contact-line">Upwork: 01496f55ce7a5e12b1</p>
-        <p class="contact-line">OLJ: 3977015 (OnlineJobs.ph)</p>
-        <p class="contact-line">Services Offered</p>
+
+        <div id="details-content">
+          <p>Freelancer — SEO Content Writer / Virtual Assistant / Sales Data Analyst / Teacher</p>
+          <p>onbizgladyslacia@gmail.com</p>
+          <p>Upwork: 01496f55ce7a5e12b1</p>
+          <p>OLJ: 3977015 (OnlineJobs.ph)</p>
+        </div>
       </div>
     </div>
-
   </div>
+
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll('.menu-btn');
+      const menu = document.getElementById('topMenu');
+      const detailsContent = document.getElementById('details-content');
+      const original = detailsContent.innerHTML;
+
+      const niche = [
+        "SEO Content Writer",
+        "General Virtual Assistant",
+        "Sales Data Analyst",
+        "Teacher"
+      ];
+
+      const contentMap = {
+        who: niche.map(item => `<p><button class="niche-btn">${item}</button></p>`).join("")
+      };
+
+      function addHomeButton() {
+        if (!document.getElementById('homeBtn')) {
+          const homeBtn = document.createElement('button');
+          homeBtn.id = 'homeBtn';
+          homeBtn.className = 'menu-btn';
+          homeBtn.textContent = 'home';
+
+          homeBtn.addEventListener('click', () => {
+            menu.innerHTML = originalButtons;
+            attachEvents();
+            detailsContent.innerHTML = original;
+          });
+
+          menu.prepend(homeBtn);
+        }
+      }
+
+      const originalButtons = menu.innerHTML;
+
+      function setActive(btn) {
+        buttons.forEach(b => {
+          const active = b === btn;
+          b.classList.toggle('active', active);
+          b.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+      }
+
+      function handleClick(e) {
+        const key = e.currentTarget.dataset.key;
+        setActive(e.currentTarget);
+        addHomeButton();
+        detailsContent.innerHTML = contentMap[key] || original;
+      }
+
+      function attachEvents() {
+        const newButtons = document.querySelectorAll('.menu-btn');
+        newButtons.forEach(btn => {
+          btn.addEventListener('click', handleClick);
+          btn.addEventListener('keydown', ev => {
+            if (ev.key === 'Enter' || ev.key === ' ') {
+              ev.preventDefault();
+              btn.click();
+            }
+          });
+        });
+      }
+
+      attachEvents();
+    })();
+  </script>
 
 </body>
 </html>
