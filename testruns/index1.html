@@ -162,10 +162,10 @@
 
   <script>
     (function () {
-      const buttons = document.querySelectorAll('.menu-btn');
       const menu = document.getElementById('topMenu');
       const detailsContent = document.getElementById('details-content');
       const original = detailsContent.innerHTML;
+      const originalButtons = menu.innerHTML;
 
       const niche = [
         "SEO Content Writer",
@@ -175,57 +175,93 @@
       ];
 
       const contentMap = {
-        who: niche.map(item => '<p><button class="niche-btn">' + item + '</button></p>').join("")
+        who: niche.map(item => '<p><button class="niche-btn" type="button">' + item + '</button></p>').join(""),
+        done: '<p>Projects and accomplishments go here.</p>',
+        learned: '<p>Skills and learning highlights go here.</p>',
+        can: '<p>What I can do: list of services or skills.</p>'
       };
 
-      function addHomeButton() {
-        if (!document.getElementById('home-btn')) {
-          const homebtn = document.createElement('button');
-          homebtn.id = 'home-btn';
-          homebtn.className = 'menu-btn';
-          homebtn.textContent = 'Home';
+      const nicheDetails = {
+        "SEO Content Writer":
+          '<p style="font-size:22px; font-weight:700">SEO CONTENT WRITER</p>' +
+          '<p>0981-359-0568</p>' +
+          '<p>onbizgladyslacia@gmail.com</p>' +
+          '<p>freelancergladyslacia</p>' +
+          '<p>onbizgladyslacia</p>' +
+          '<p>Upwork: 01496f55ce7a5e12b1</p>' +
+          '<p>OLJ: 3977015 (OnlineJobs.ph)</p>' +
+          '<p>Calamba, Misamis Occidental, Philippines</p>',
 
-          homebtn.addEventListener('click', () => {
-            menu.innerHTML = originalButtons;
-            attachEvents();
-            detailsContent.innerHTML = original;
-          });
+        "General Virtual Assistant": '<p>General VA contact details or description.</p>',
+        "Sales Data Analyst": '<p>Sales Data Analyst details or portfolio.</p>',
+        "Teacher": '<p>Teacher bio, subjects taught, contact.</p>'
+      };
 
-          menu.prepend(homebtn);
-        }
+      function getMenuButtons() {
+        return Array.from(document.querySelectorAll('.menu-btn'));
       }
 
-      const originalButtons = menu.innerHTML;
-
       function setActive(btn) {
-        buttons.forEach(b => {
+        getMenuButtons().forEach(b => {
           const active = b === btn;
           b.classList.toggle('active', active);
           b.setAttribute('aria-pressed', active ? 'true' : 'false');
         });
       }
 
-      function handleClick(e) {
+      function handleMenuClick(e) {
         const key = e.currentTarget.dataset.key;
         setActive(e.currentTarget);
-        addHomeButton();
         detailsContent.innerHTML = contentMap[key] || original;
+        addHomeButton();
       }
 
-      function attachEvents() {
-        const newButtons = document.querySelectorAll('.menu-btn');
-        newButtons.forEach(btn => {
-          btn.addEventListener('click', handleClick);
-          btn.addEventListener('keydown', ev => {
-            if (ev.key === 'Enter' || ev.key === ' ') {
-              ev.preventDefault();
-              btn.click();
-            }
-          });
+      function attachMenuEvents() {
+        getMenuButtons().forEach(btn => {
+          btn.removeEventListener('click', handleMenuClick);
+          btn.addEventListener('click', handleMenuClick);
+
+          btn.removeEventListener('keydown', menuKeydownHandler);
+          btn.addEventListener('keydown', menuKeydownHandler);
         });
       }
 
-      attachEvents();
+      function menuKeydownHandler(ev) {
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault();
+          ev.currentTarget.click();
+        }
+      }
+
+      function addHomeButton() {
+        if (!document.getElementById('home-btn')) {
+          const homebtn = document.createElement('button');
+          homebtn.id = 'home-btn';
+          homebtn.className = 'menu-btn';
+          homebtn.type = 'button';
+          homebtn.textContent = 'Home';
+
+          homebtn.addEventListener('click', () => {
+            menu.innerHTML = originalButtons;
+            detailsContent.innerHTML = original;
+            attachMenuEvents();
+          });
+
+          menu.prepend(homebtn);
+          attachMenuEvents();
+        }
+      }
+
+      // Event delegation for niche buttons
+      detailsContent.addEventListener('click', function (event) {
+        const clicked = event.target;
+        if (clicked.matches('.niche-btn')) {
+          const nicheName = clicked.textContent.trim();
+          detailsContent.innerHTML = nicheDetails[nicheName] || '<p>' + nicheName + '</p>';
+        }
+      });
+
+      attachMenuEvents();
     })();
   </script>
 
