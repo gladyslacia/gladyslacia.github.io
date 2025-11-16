@@ -9,6 +9,7 @@
   :root {
     --font-family-base: "Inter", sans-serif;
     --primary-color: #024570;
+    --hover-color: #108a00; /* unified hover color */
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -59,9 +60,9 @@
     transition: background 0.2s ease-in-out;
   }
 
-  /* ⭐ HOVER ONLY FOR "who am I?" BUTTON */
-  #whoami-btn:hover {
-    background: #108a00;
+  /* ⭐ All menu buttons hover effect unified */
+  .menu-btn:hover {
+    background: var(--hover-color);
   }
 
   .profile {
@@ -136,7 +137,7 @@
 
   <div class="top-menu-wrapper">
     <div class="top-menu">
-      <button class="menu-btn" id="whoami-btn">who am I?</button>
+      <button class="menu-btn" >who am I?</button>
       <button class="menu-btn">what have I done?</button>
       <button class="menu-btn">what have I learned?</button>
       <button class="menu-btn">what can I do?</button>
