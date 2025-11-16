@@ -28,7 +28,7 @@ window.seocontentwriter =
   "<p class='projects'>Projects:</p>" +
   "<ol>" +
     "<li>Credit Card Traps to Avoid: 7 Costly Financing Mistakes That Drain Your Wallet <br> Finance Blog <br> Google Docs, Perplexity, Ahrefs, Google Search (April 2025)</li>" +
-    "<li>2 Project item</li>" +
+    "<li><a href='https://cert.efset.org/KiE1vu' target='_blank'>Credit Card Traps to Avoid: 7 Costly Financing Mistakes That Drain Your Wallet</a> <br> Finance Blog <br> Google Docs, Perplexity, Ahrefs, Google Search (April 2025)</li>" +
     "<li>3 Project item</li>" +
     "<li>4 Project item</li>" +
   "</ol>" +
