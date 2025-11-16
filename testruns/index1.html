@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gladys Lacia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..72,300..800&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="./assets/favicongdlcgithubio.png" />
+
+  <style>
+    :root {
+      --primary: #024570;
+      --accent: #108a00;
+
+      --font-family-base: "Inter", sans-serif;
+      --font-stack: var(--font-family-base), Arial, sans-serif,
+                    "Apple Color Emoji", "Segoe UI Emoji",
+                    "Segoe UI Symbol", "Noto Color Emoji";
+
+      --text: 15px;
+      --h1: 28px;
+      --h2: 20px;
+      --h3: 17px;
+
+      --line: 1.5;  
+      --scale-ease: 170ms; 
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: var(--font-stack);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-optical-sizing: auto; 
+      letter-spacing: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      line-height: var(--line);
+      background: #fff;
+      color: #000;
+      font-size: var(--text);
+      font-family: var(--font-stack);
+      font-variation-settings: "wght" 400, "opsz" 14;
+      transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-stack);
+      font-optical-sizing: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1 {
+      font-size: var(--h1);
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      font-variation-settings: "wght" 700, "opsz" 24;
+      transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
+    }
+
+    h2 {
+      font-size: var(--h2);
+      font-weight: 700;
+      margin-top: 18px;
+      margin-bottom: 6px;
+      font-variation-settings: "wght" 700, "opsz" 18;
+      transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
+    }
+
+    h3 {
+      font-size: var(--h3);
+      font-weight: 700;
+      margin-top: 12px;
+      margin-bottom: 4px;
+      font-variation-settings: "wght" 700, "opsz" 16;
+      transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
+    }
+
+    ul, ol {
+      margin-top: 6px;
+      margin-bottom: 10px;
+      padding-left: 1.25rem;
+    }
+
+    .top-menu-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .top-menu {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .menu-btn, .niche-btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background .15s, transform .08s, font-variation-settings var(--scale-ease);
+      white-space: nowrap;
+      font-family: var(--font-stack);
+      font-variation-settings: "wght" 500, "opsz" 14;
+    }
+
+    .menu-btn:not(#home-btn):hover,
+    .menu-btn:not(#home-btn):focus,
+    .menu-btn.active {
+      background: var(--accent);
+      transform: translateY(-1px);
+      font-variation-settings: "wght" 700, "opsz" 14;
+    }
+
+    .niche-btn {
+      background: var(--accent) !important;
+      color: #fff;
+      margin-bottom: 6px !important;
+    }
+
+    .niche-btn:hover,
+    .niche-btn:focus {
+      background: yellow !important;
+      color: #000 !important;
+      font-variation-settings: "wght" 700, "opsz" 14;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .profile {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .profile img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid var(--accent);
+    }
+
+    .details h1 {
+      font-size: var(--h1);
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-variation-settings: "wght" 700, "opsz" 24;
+    }
+
+    #details p {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    }
+
+    #resume p {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    }
+
+    .niche-heading {
+    font-size: var(--h2);
+    font-weight: 700;
+    margin-top: 18px !important;
+    margin-bottom: 6px !important;
+    font-family: var(--font-stack);
+    font-optical-sizing: auto;
+    font-variation-settings: "wght" 700, "opsz" 18;
+    transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
+    }
+
+    #resume {
+      display: none;
+      margin-top: 18px;
+      font-family: var(--font-stack);
+      font-variation-settings: "wght" 400, "opsz" 14;
+    }
+
+    .job-title,
+    .company-line,
+    .projects {
+      font-size: var(--text);
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-stack);
+      font-optical-sizing: auto;
+      font-variation-settings: "wght" 700, "opsz" 16;
+      transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
+    }
+
+    .job-title {
+      font-size: var(--h3);
+      font-weight: 700;
+      margin-top: 12px;
+      margin-bottom: 4px;
+      font-variation-settings: "wght" 700, "opsz" 16;
+    }
+
+    .company-line {
+      font-weight: 400;
+      margin-bottom: 6px;
+      font-variation-settings: "wght" 400, "opsz" 14;
+    }
+
+    .projects {
+      font-weight: 700;
+      margin-bottom: 4px;
+      margin-top: 6px;
+      font-variation-settings: "wght" 700, "opsz" 14;
+    }
+
+    @media (max-width: 600px) {
+      :root { --text: 14px; --h3: 16px; --h2: 18px; --h1: 24px; --line: 1.6; }
+      .profile img { width: 110px; height: 110px; }
+      .top-menu-wrapper { justify-content: flex-start; }
+      body { font-variation-settings: "wght" 400, "opsz" 14; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-menu-wrapper">
+    <div class="top-menu" id="topmenu">
+      <button class="menu-btn" data-key="who">Who am I?</button>
+      <button class="menu-btn" data-key="done">What have I done?</button>
+      <button class="menu-btn" data-key="learned">What have I learned?</button>
+      <button class="menu-btn" data-key="can">What can I do?</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="profile">
+      <img src="./assets/profilepicture1.jpg" alt="Gladys Lacia">
+
+      <div class="details">
+        <h1>GLADYS LACIA</h1>
+
+        <div id="details">
+          <p>Freelancer — SEO Content Writer / Virtual Assistant / Sales Data Analyst / Teacher</p>
+          <p>onbizgladyslacia@gmail.com</p>
+          <p>Upwork: 01496f55ce7a5e12b1</p>
+          <p>OLJ: 3977015 (OnlineJobs.ph)</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="resume"></div>
+
+  </div>
+
+    <script src="./niche/nichejavascripts/seocontentwriter.js"></script>
+    <script src="./niche/nichejavascripts/virtualassistant.js"></script>
+    <script src="./niche/nichejavascripts/datascience.js"></script>
+
+  <script>
+  (function () {
+    const menu = document.getElementById('topmenu');
+    const vardetails = document.getElementById('details');
+    const original = vardetails.innerHTML;        
+    const resumecontent = document.getElementById('resume');
+
+    const niche = [
+      "SEO Content Writer",
+      "General VA",
+      "Data Analyst"
+    ];
+
+    const target = {
+      who:
+        niche
+          .map(function(item){
+            return "<p><button class='niche-btn'>" + item + "</button></p>";
+          })
+          .join(""),
+
+      done: "<p>Projects and accomplishments go here.</p>",
+      learned: "<p>Skills and learning highlights go here.</p>",
+      can: "<p>What I can do: list of services or skills.</p>"
+    };
+
+    function menubuttons() {
+      return Array.prototype.slice.call(menu.querySelectorAll('.menu-btn[data-key]'));
+    }
+
+    function activemenu(btn) {
+      menubuttons().forEach(function(b){
+        b.classList.toggle('active', b === btn);
+      });
+    }
+
+    function hideresume() {
+      resumecontent.style.display = 'none';
+      resumecontent.innerHTML = "";
+    }
+
+    function addhomebutton() {
+      if (document.getElementById('home-btn')) return;
+
+      const home = document.createElement('button');
+      home.id = 'home-btn';
+      home.className = 'menu-btn';
+      home.textContent = 'Home';
+
+      home.addEventListener('click', function () {
+        vardetails.innerHTML = original;
+        hideresume();
+
+        menubuttons().forEach(function(b){
+          b.classList.remove('active');
+        });
+
+        const existingHome = document.getElementById('home-btn');
+        if (existingHome) existingHome.remove();
+      });
+
+      menu.prepend(home);
+    }
+
+    function clickmenu(e) {
+      const key = e.currentTarget.dataset.key;
+      if (!key) return;
+
+      activemenu(e.currentTarget);
+      vardetails.innerHTML = target[key] || original;
+      hideresume();
+
+      addhomebutton();
+    }
+
+    function menuactions() {
+      menubuttons().forEach(function(btn){
+        btn.removeEventListener('click', clickmenu);
+        btn.addEventListener('click', clickmenu);
+      });
+    }
+
+    vardetails.addEventListener('click', function(e){
+      if (e.target.matches('.niche-btn')) {
+        const name = e.target.textContent.trim();
+        vardetails.innerHTML = (window.niches && window.niches[name]) || "<p>" + name + "</p>";
+
+        if (name === "SEO Content Writer") {
+          resumecontent.innerHTML = window.seocontentwriter || "";
+          resumecontent.style.display = 'block';
+        } else if (name === "General VA") {
+          resumecontent.innerHTML = window.virtualassistant || "";
+          resumecontent.style.display = 'block';
+        } else if (name === "Data Analyst") {
+          resumecontent.innerHTML = window.datascience || "";
+          resumecontent.style.display = 'block';
+        } else {
+          hideresume();
+        }
+
+        resumecontent.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    menuactions();
+  })();
+  </script>
+
+</body>
+</html>
