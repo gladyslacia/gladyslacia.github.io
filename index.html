@@ -177,7 +177,7 @@
     line-height: 1 !important;
     }
 
-    #niche-contentwriter p {
+    #resume p {
     margin: 0 !important;
     padding: 0 !important;
     line-height: 1 !important;
@@ -194,7 +194,7 @@
     transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
     }
 
-    #niche-contentwriter {
+    #resume {
       display: none;
       margin-top: 18px;
       font-family: var(--font-stack);
@@ -270,7 +270,7 @@
       </div>
     </div>
 
-    <div id="niche-contentwriter"></div>
+    <div id="resume"></div>
 
   </div>
 
@@ -285,7 +285,7 @@
       const original = detailsContent.innerHTML;
       const originalButtons = menu.innerHTML;
 
-      const contentwriter = document.getElementById('niche-contentwriter');
+      const resumecontent = document.getElementById('resume');
 
       const niche = [
         "SEO Content Writer",
@@ -316,16 +316,16 @@
         });
       }
 
-      function hidewriter() {
-        contentwriter.style.display = 'none';
-        contentwriter.innerHTML = "";
+      function hideresume() {
+        resumecontent.style.display = 'none';
+        resumecontent.innerHTML = "";
       }
 
       function clickmenu(e) {
         const key = e.currentTarget.dataset.key;
         activemenu(e.currentTarget);
         detailsContent.innerHTML = contentMap[key] || original;
-        hidewriter();
+        hideresume();
         addhomebutton();
       }
 
@@ -339,7 +339,7 @@
           home.addEventListener('click', function () {
             menu.innerHTML = originalButtons;
             detailsContent.innerHTML = original;
-            hidewriter();
+            hideresume();
             menuactions();
           });
 
@@ -353,13 +353,25 @@
           const name = e.target.textContent.trim();
           detailsContent.innerHTML = (window.niches && window.niches[name]) || "<p>" + name + "</p>";
 
-          if (name === "SEO Content Writer") {
-            contentwriter.innerHTML = window.seocontentwriter || "";
-            contentwriter.style.display = 'block';
-            contentwriter.scrollIntoView({ behavior: 'smooth' });
-          } else {
-            hidewriter();
-          }
+        if (name === "SEO Content Writer") {
+            resumecontent.innerHTML = window.seocontentwriter || "";
+            resumecontent.style.display = 'block';
+        }
+
+        else if (name === "General VA") {
+            resumecontent.innerHTML = window.virtualassistant || "";
+            resumecontent.style.display = 'block';
+        }
+
+        else if (name === "Data Analyst") {
+            resumecontent.innerHTML = window.datascience || "";
+            resumecontent.style.display = 'block';
+        } else {
+            hideresume();
+        }
+
+        resumecontent.scrollIntoView({ behavior: 'smooth' });
+
         }
       });
 
