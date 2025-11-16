@@ -1,6 +1,3 @@
-// seocontentwriter.js
-// Add niche entry to the global niches object and export seocontentwriter html
-
 window.niches = window.niches || {};
 
 window.niches["SEO Content Writer"] =
@@ -13,7 +10,6 @@ window.niches["SEO Content Writer"] =
   "<p>OLJ: 3977015 (OnlineJobs.ph)</p>" +
   "<p>Calamba, Misamis Occidental, Philippines</p>";
 
-// Full longer profile used by the main script when "SEO Content Writer" is clicked
 window.seocontentwriter =
   "<h2>PROFESSIONAL SUMMARY</h2>" +
   "<p>Experienced freelance academic and content writer delivering thoroughly researched, high-quality content across diverse fields. I specialize in academic, analytical, and content writing for business. My work includes research papers, articles, blog posts, and comprehensive reviews. I focus on the Humanities (Literature, History, Arts & Culture), Social Sciences (Education, Sociology, International Relations), and Interdisciplinary fields (Digital Humanities, Science Communication, Global Studies). I create SEO-optimized blog content on Blogger, using tools such as Ahrefs, Semrush, Google Trends, and Google Search Console to enhance visibility and engagement. I apply SEO best practices, including on-page optimization, keyword research, internal and external linking strategies, and content structuring to improve search engine rankings. I craft content that drives client retention and reader engagement, with a voice tailored to each project’s unique audience and objective.</p>" +

@@ -1,4 +1,3 @@
-// virtualassistant.js
 window.niches = window.niches || {};
 
 window.niches["General VA"] =
@@ -11,7 +10,6 @@ window.niches["General VA"] =
   "<p>OLJ: 3977015 (OnlineJobs.ph)</p>" +
   "<p>Calamba, Misamis Occidental, Philippines</p>";
 
-// provide a longer profile if you want a similar expanded view
 window.virtualassistant = 
   "<h2>PROFESSIONAL SUMMARY</h2>" +
   "<p>As a detail-oriented professional, I craft effective content strategies, streamline workflows, and apply impactful SEO practices to help businesses grow sustainably. With years of continuous upskilling in research, business correspondence, content development, and admin support, I balance technical precision and creativity in every task. I can manage 5-8 projects at once, coordinate daily operations, and optimize tasks for timely, accurate delivery. My SEO skill includes on-page optimisation, keyword research, and content structuring, complemented by blogging and social media management using tools like Blogger, WordPress, Notion, Zapier, and Google Search Console. I am trained in English communication, active listening, and project coordination, with working knowledge of video editing in CapCut and graphic design in Canva. I work well in fast-paced virtual environments and adapt quickly to new tools, consistently delivering clear, targeted outputs that support business growth.</p>" +
