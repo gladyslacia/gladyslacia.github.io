@@ -51,8 +51,8 @@
       white-space: nowrap;
     }
 
-    .menu-btn:not(#homeBtn):hover,
-    .menu-btn:not(#homeBtn):focus,
+    .menu-btn:not(#home-btn):hover,
+    .menu-btn:not(#home-btn):focus,
     .menu-btn.active {
       background: var(--accent);
       transform: translateY(-1px);
@@ -135,11 +135,11 @@
 
 <body>
   <div class="top-menu-wrapper">
-    <div class="top-menu" id="topMenu" role="tablist" aria-label="Top navigation">
-      <button class="menu-btn" data-key="who" aria-pressed="false">who am I?</button>
-      <button class="menu-btn" data-key="done" aria-pressed="false">what have I done?</button>
-      <button class="menu-btn" data-key="learned" aria-pressed="false">what have I learned?</button>
-      <button class="menu-btn" data-key="can" aria-pressed="false">what can I do?</button>
+    <div class="top-menu" id="topMenu" role="tablist" aria-label="Navigation">
+      <button class="menu-btn" data-key="who" aria-pressed="false">Who am I?</button>
+      <button class="menu-btn" data-key="done" aria-pressed="false">What have I done?</button>
+      <button class="menu-btn" data-key="learned" aria-pressed="false">What have I learned?</button>
+      <button class="menu-btn" data-key="can" aria-pressed="false">What can I do?</button>
     </div>
   </div>
 
@@ -175,23 +175,23 @@
       ];
 
       const contentMap = {
-        who: niche.map(item => `<p><button class="niche-btn">${item}</button></p>`).join("")
+        who: niche.map(item => '<p><button class="niche-btn">' + item + '</button></p>').join("")
       };
 
       function addHomeButton() {
-        if (!document.getElementById('homeBtn')) {
-          const homeBtn = document.createElement('button');
-          homeBtn.id = 'homeBtn';
-          homeBtn.className = 'menu-btn';
-          homeBtn.textContent = 'home';
+        if (!document.getElementById('home-btn')) {
+          const homebtn = document.createElement('button');
+          homebtn.id = 'home-btn';
+          homebtn.className = 'menu-btn';
+          homebtn.textContent = 'Home';
 
-          homeBtn.addEventListener('click', () => {
+          homebtn.addEventListener('click', () => {
             menu.innerHTML = originalButtons;
             attachEvents();
             detailsContent.innerHTML = original;
           });
 
-          menu.prepend(homeBtn);
+          menu.prepend(homebtn);
         }
       }
 
