@@ -5,27 +5,104 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gladys Lacia</title>
 
-  <!-- Favicon Added -->
+  <!-- Preconnect + Variable Inter (with optical sizing & variable weights) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Variable Inter with opsz and wght axis; display=swap for good UX -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..72,300..800&display=swap" rel="stylesheet">
+
   <link rel="icon" type="image/png" href="https://gladyslacia.github.io/assets/favicongdlcgithubio.png" />
 
   <style>
     :root {
       --primary: #024570;
       --accent: #108a00;
-      --font: Arial, sans-serif;
+
+      /* CONSISTENT FONT SYSTEM */
+      --font-family-base: "Inter", sans-serif;
+      --font-stack: var(--font-family-base), Arial, sans-serif,
+                    "Apple Color Emoji", "Segoe UI Emoji",
+                    "Segoe UI Symbol", "Noto Color Emoji";
+
+      --text: 15px;   /* base font-size */
+      --h1: 28px;
+      --h2: 20px;
+      --h3: 17px;
+
+      --line: 1.65;  /* improved line-height for readability */
+      --scale-ease: 180ms; /* transition duration for weight/vars */
     }
 
-    * { box-sizing: border-box; }
+    /* Global reset + consistent font stack */
+    * {
+      box-sizing: border-box;
+      font-family: var(--font-stack);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-optical-sizing: auto; /* enable optical sizing where supported */
+      letter-spacing: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
 
     body {
       margin: 0;
       padding: 20px;
-      font-family: var(--font);
-      line-height: 1.6;
+      line-height: var(--line);
       background: #fff;
       color: #000;
+      font-size: var(--text);
+      font-family: var(--font-stack);
+      /* Favor variable font axes where available */
+      font-variation-settings: "wght" 400, "opsz" 14;
+      transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
     }
 
+    /* Headings + paragraphs inherit same family and optical sizing */
+    h1, h2, h3, p {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-stack);
+      font-optical-sizing: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1 {
+      font-size: var(--h1);
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      font-variation-settings: "wght" 700, "opsz" 24;
+      transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
+    }
+
+    h2 {
+      font-size: var(--h2);
+      font-weight: 700;
+      margin-top: 18px;
+      margin-bottom: 6px;
+      font-variation-settings: "wght" 700, "opsz" 18;
+      transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
+    }
+
+    h3 {
+      font-size: var(--h3);
+      font-weight: 700;
+      margin-top: 12px;
+      margin-bottom: 4px;
+      font-variation-settings: "wght" 700, "opsz" 16;
+      transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
+    }
+
+    ul, ol {
+      margin-top: 6px;
+      margin-bottom: 10px;
+      padding-left: 1.25rem;
+    }
+
+    /* Top menu */
     .top-menu-wrapper {
       display: flex;
       justify-content: center;
@@ -46,30 +123,31 @@
       border: none;
       font-size: 14px;
       cursor: pointer;
-      outline: none;
-      transition: background .15s, transform .08s;
+      transition: background .15s, transform .08s, font-variation-settings var(--scale-ease);
       white-space: nowrap;
+      font-family: var(--font-stack);
+      font-variation-settings: "wght" 500, "opsz" 14; /* slightly heavier by default */
     }
 
+    /* On hover/focus make weight slightly bolder with smooth transition (works with variable font) */
     .menu-btn:not(#home-btn):hover,
     .menu-btn:not(#home-btn):focus,
     .menu-btn.active {
       background: var(--accent);
       transform: translateY(-1px);
+      font-variation-settings: "wght" 700, "opsz" 14;
     }
 
-    /* niche button default */
     .niche-btn {
-      background: #108a00 !important;
+      background: var(--accent) !important;
       color: #fff;
     }
 
-    /* niche button hover */
     .niche-btn:hover,
     .niche-btn:focus {
       background: yellow !important;
-      color: black !important;
-      transform: translateY(-1px);
+      color: #000 !important;
+      font-variation-settings: "wght" 700, "opsz" 14;
     }
 
     .container {
@@ -90,64 +168,90 @@
       object-fit: cover;
       border-radius: 50%;
       border: 6px solid var(--accent);
-      flex: 0 0 auto;
-    }
-
-    .details {
-      flex: 1 1 auto;
-      min-width: 0;
     }
 
     .details h1 {
-      margin: 0 0 8px 0;
-      font-size: 28px;
-      letter-spacing: 1px;
+      font-size: var(--h1);
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-variation-settings: "wght" 700, "opsz" 24;
     }
 
-    .details p {
-      font-size: 15px;
-      word-break: break-word;
+    #details-content p {
+      font-size: var(--text);
+      margin-bottom: 4px;
+      font-variation-settings: "wght" 400, "opsz" 14;
     }
 
-    #details-content { margin: 0; }
-    #details-content p { margin: 0; }
-
-    #details-content .niche-btn {
-      margin-bottom: 7px;
+    /* niche-contentwriter container */
+    #niche-contentwriter {
+      display: none;
+      margin-top: 18px;
+      font-family: var(--font-stack);
+      font-variation-settings: "wght" 400, "opsz" 14;
     }
 
+    /* consistent p-based titles with no extra spacing */
+    .job-title,
+    .company-line,
+    .projects-label {
+      font-size: var(--text);
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-stack);
+      font-optical-sizing: auto;
+      font-variation-settings: "wght" 700, "opsz" 16;
+      transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
+    }
+
+    .job-title {
+      font-size: var(--h3);
+      font-weight: 700;
+      margin-top: 12px;
+      margin-bottom: 4px;
+      /* ensure opsz set for larger size */
+      font-variation-settings: "wght" 700, "opsz" 16;
+    }
+
+    .company-line {
+      font-weight: 400;
+      margin-bottom: 6px;
+      font-variation-settings: "wght" 400, "opsz" 14;
+    }
+
+    .projects-label {
+      font-weight: 700;
+      margin-bottom: 4px;
+      margin-top: 6px;
+      font-variation-settings: "wght" 700, "opsz" 14;
+    }
+
+    /* small screens adjustments */
     @media (max-width: 600px) {
-      .profile {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      .profile img {
-        width: 110px;
-        height: 110px;
-      }
-      .top-menu-wrapper {
-        justify-content: flex-start;
-      }
+      :root { --text: 14px; --h3: 16px; --h2: 18px; --h1: 24px; --line: 1.6; }
+      .profile img { width: 110px; height: 110px; }
+      .top-menu-wrapper { justify-content: flex-start; }
+      body { font-variation-settings: "wght" 400, "opsz" 14; }
     }
   </style>
 </head>
 
 <body>
+
   <div class="top-menu-wrapper">
-    <div class="top-menu" id="topMenu" role="tablist" aria-label="Navigation">
-      <button class="menu-btn" data-key="who" aria-pressed="false">Who am I?</button>
-      <button class="menu-btn" data-key="done" aria-pressed="false">What have I done?</button>
-      <button class="menu-btn" data-key="learned" aria-pressed="false">What have I learned?</button>
-      <button class="menu-btn" data-key="can" aria-pressed="false">What can I do?</button>
+    <div class="top-menu" id="topMenu">
+      <button class="menu-btn" data-key="who">Who am I?</button>
+      <button class="menu-btn" data-key="done">What have I done?</button>
+      <button class="menu-btn" data-key="learned">What have I learned?</button>
+      <button class="menu-btn" data-key="can">What can I do?</button>
     </div>
   </div>
 
   <div class="container">
     <div class="profile">
-      <img src="https://gladyslacia.github.io/assets/profilepicture1.jpg" alt="Gladys Lacia" />
+      <img src="https://gladyslacia.github.io/assets/profilepicture1.jpg" alt="Gladys Lacia">
 
-      <div class="details" id="details">
+      <div class="details">
         <h1>GLADYS LACIA</h1>
 
         <div id="details-content">
@@ -158,6 +262,9 @@
         </div>
       </div>
     </div>
+
+    <div id="niche-contentwriter"></div>
+
   </div>
 
   <script>
@@ -167,6 +274,8 @@
       const original = detailsContent.innerHTML;
       const originalButtons = menu.innerHTML;
 
+      const contentwriter = document.getElementById('niche-contentwriter');
+
       const niche = [
         "SEO Content Writer",
         "General Virtual Assistant",
@@ -175,91 +284,165 @@
       ];
 
       const contentMap = {
-        who: niche.map(item => '<p><button class="niche-btn" type="button">' + item + '</button></p>').join(""),
-        done: '<p>Projects and accomplishments go here.</p>',
-        learned: '<p>Skills and learning highlights go here.</p>',
-        can: '<p>What I can do: list of services or skills.</p>'
+        who:
+          niche
+            .map(function(item){
+              return "<p><button class='niche-btn'>" + item + "</button></p>";
+            })
+            .join(""),
+
+        done: "<p>Projects and accomplishments go here.</p>",
+        learned: "<p>Skills and learning highlights go here.</p>",
+        can: "<p>What I can do: list of services or skills.</p>"
       };
 
       const nicheDetails = {
         "SEO Content Writer":
-          '<p style="font-size:22px; font-weight:700">SEO CONTENT WRITER</p>' +
-          '<p>0981-359-0568</p>' +
-          '<p>onbizgladyslacia@gmail.com</p>' +
-          '<p>freelancergladyslacia</p>' +
-          '<p>onbizgladyslacia</p>' +
-          '<p>Upwork: 01496f55ce7a5e12b1</p>' +
-          '<p>OLJ: 3977015 (OnlineJobs.ph)</p>' +
-          '<p>Calamba, Misamis Occidental, Philippines</p>',
+          "<p class='niche-heading'>SEO CONTENT WRITER</p>" +
+          "<p>0981-359-0568</p>" +
+          "<p>onbizgladyslacia@gmail.com</p>" +
+          "<p>freelancergladyslacia</p>" +
+          "<p>onbizgladyslacia</p>" +
+          "<p>Upwork: 01496f55ce7a5e12b1</p>" +
+          "<p>OLJ: 3977015 (OnlineJobs.ph)</p>" +
+          "<p>Calamba, Misamis Occidental, Philippines</p>",
 
-        "General Virtual Assistant": '<p>General VA contact details or description.</p>',
-        "Sales Data Analyst": '<p>Sales Data Analyst details or portfolio.</p>',
-        "Teacher": '<p>Teacher bio, subjects taught, contact.</p>'
+        "General Virtual Assistant": "<p>General VA info.</p>",
+        "Sales Data Analyst": "<p>Sales Data Analyst info.</p>",
+        "Teacher": "<p>Teacher info.</p>"
       };
 
+      const seocontentwriter =
+        "<h2>PROFESSIONAL SUMMARY</h2>" +
+        "<p>Lorem ipsum</p>" +
+
+        "<h2>WORK EXPERIENCE & PROJECTS</h2>" +
+
+        "<p class='job-title'>Job Title</p>" +
+        "<p class='company-line'>Company, Year</p>" +
+        "<ul>" +
+          "<li>Bullet item</li>" +
+          "<li>Bullet item</li>" +
+          "<li>Bullet item</li>" +
+        "</ul>" +
+        "<p class='projects-label'>Projects:</p>" +
+        "<ol>" +
+          "<li>Project item</li>" +
+          "<li>Project item</li>" +
+        "</ol>" +
+
+        "<p class='job-title'>Job Title</p>" +
+        "<p class='company-line'>Company, Year</p>" +
+        "<ul>" +
+          "<li>Bullet item</li>" +
+          "<li>Bullet item</li>" +
+        "</ul>" +
+        "<p class='projects-label'>Projects:</p>" +
+        "<ol>" +
+          "<li>Project item</li>" +
+          "<li>Project item</li>" +
+        "</ol>" +
+
+        "<h2>CERTIFICATIONS & TRAININGS</h2>" +
+        "<ul>" +
+          "<li>Certification 1</li>" +
+          "<li>Certification 2</li>" +
+          "<li>Certification 3</li>" +
+        "</ul>" +
+
+        "<h2>EDUCATION</h2>" +
+        "<ul>" +
+          "<li>Education item</li>" +
+        "</ul>" +
+
+        "<h2>SKILLS, EXPERTISE & TOOLS</h2>" +
+
+        "<h3>Soft Skills</h3>" +
+        "<ul>" +
+          "<li>Lorem ipsum</li>" +
+          "<li>Lorem ipsum</li>" +
+        "</ul>" +
+
+        "<h3>Technical Skills</h3>" +
+        "<ul>" +
+          "<li>Lorem ipsum</li>" +
+          "<li>Lorem ipsum</li>" +
+        "</ul>" +
+
+        "<h3>Tools</h3>" +
+        "<ul>" +
+          "<li>Lorem ipsum</li>" +
+          "<li>Lorem ipsum</li>" +
+        "</ul>" +
+
+        "<h3>Languages</h3>" +
+        "<ul>" +
+          "<li>Lorem ipsum</li>" +
+          "<li>Lorem ipsum</li>" +
+        "</ul>";
+
       function getMenuButtons() {
-        return Array.from(document.querySelectorAll('.menu-btn'));
+        return Array.prototype.slice.call(document.querySelectorAll('.menu-btn'));
       }
 
       function setActive(btn) {
-        getMenuButtons().forEach(b => {
-          const active = b === btn;
-          b.classList.toggle('active', active);
-          b.setAttribute('aria-pressed', active ? 'true' : 'false');
+        getMenuButtons().forEach(function(b){
+          b.classList.toggle('active', b === btn);
         });
+      }
+
+      function hideContentwriter() {
+        contentwriter.style.display = 'none';
+        contentwriter.innerHTML = "";
       }
 
       function handleMenuClick(e) {
         const key = e.currentTarget.dataset.key;
         setActive(e.currentTarget);
         detailsContent.innerHTML = contentMap[key] || original;
+        hideContentwriter();
         addHomeButton();
-      }
-
-      function attachMenuEvents() {
-        getMenuButtons().forEach(btn => {
-          btn.removeEventListener('click', handleMenuClick);
-          btn.addEventListener('click', handleMenuClick);
-
-          btn.removeEventListener('keydown', menuKeydownHandler);
-          btn.addEventListener('keydown', menuKeydownHandler);
-        });
-      }
-
-      function menuKeydownHandler(ev) {
-        if (ev.key === 'Enter' || ev.key === ' ') {
-          ev.preventDefault();
-          ev.currentTarget.click();
-        }
       }
 
       function addHomeButton() {
         if (!document.getElementById('home-btn')) {
-          const homebtn = document.createElement('button');
-          homebtn.id = 'home-btn';
-          homebtn.className = 'menu-btn';
-          homebtn.type = 'button';
-          homebtn.textContent = 'Home';
+          const home = document.createElement('button');
+          home.id = 'home-btn';
+          home.className = 'menu-btn';
+          home.textContent = 'Home';
 
-          homebtn.addEventListener('click', () => {
+          home.addEventListener('click', function () {
             menu.innerHTML = originalButtons;
             detailsContent.innerHTML = original;
+            hideContentwriter();
             attachMenuEvents();
           });
 
-          menu.prepend(homebtn);
+          menu.prepend(home);
           attachMenuEvents();
         }
       }
 
-      // Event delegation for niche buttons
-      detailsContent.addEventListener('click', function (event) {
-        const clicked = event.target;
-        if (clicked.matches('.niche-btn')) {
-          const nicheName = clicked.textContent.trim();
-          detailsContent.innerHTML = nicheDetails[nicheName] || '<p>' + nicheName + '</p>';
+      detailsContent.addEventListener('click', function(e){
+        if (e.target.matches('.niche-btn')) {
+          const name = e.target.textContent.trim();
+          detailsContent.innerHTML = nicheDetails[name] || "<p>" + name + "</p>";
+
+          if (name === "SEO Content Writer") {
+            contentwriter.innerHTML = seocontentwriter;
+            contentwriter.style.display = 'block';
+            contentwriter.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            hideContentwriter();
+          }
         }
       });
+
+      function attachMenuEvents() {
+        getMenuButtons().forEach(function(btn){
+          btn.addEventListener('click', handleMenuClick);
+        });
+      }
 
       attachMenuEvents();
     })();
