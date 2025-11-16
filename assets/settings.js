@@ -15,3 +15,23 @@ window.globalSettings.languagesHTML =
     "<li>Maguindanao &mdash; Native</li>" +
   "</ul>";
 
+window.globalSettings.businessphoneHTML =
+    "<p>+63-912-461-9473</p>"
+
+window.globalSettings.businessemailHTML =
+    "<p>onbizgladyslacia@gmail.com</p>"
+
+window.globalSettings.linkedinHTML =
+    "<p>freelancergladyslacia</p>"
+
+window.globalSettings.facebookHTML =
+    "<p>onbizgladyslacia</p>"
+
+window.globalSettings.UpworkHTML =
+    "<p>Upwork: 01496f55ce7a5e12b1</p>"
+
+window.globalSettings.oljHTML =
+    "<p>OnlineJobs.ph: 3977015</p>"
+
+window.globalSettings.addressHTML =
+    "<p>Calamba, Misamis Occidental, Philippines</p>"

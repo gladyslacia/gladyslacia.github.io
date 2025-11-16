@@ -4,13 +4,13 @@ window.niches = window.niches || {};
 
 window.niches["Data Analyst"] =
   "<p class='niche-heading'>SALES DATA ANALYST</p>" +
-  "<p>0981-359-0568</p>" +
-  "<p>onbizgladyslacia@gmail.com</p>" +
-  "<p>freelancergladyslacia</p>" +
-  "<p>onbizgladyslacia</p>" +
-  "<p>Upwork: 01496f55ce7a5e12b1</p>" +
-  "<p>OLJ: 3977015 (OnlineJobs.ph)</p>" +
-  "<p>Calamba, Misamis Occidental, Philippines</p>";
+  window.globalSettings.businessphoneHTML +
+  window.globalSettings.businessemailHTML +
+  window.globalSettings.linkedinHTML +
+  window.globalSettings.facebookHTML +
+  window.globalSettings.UpworkHTML +
+  window.globalSettings.oljHTML +
+  window.globalSettings.addressHTML;
 
 window.datascience = 
   "<h2>PROFESSIONAL SUMMARY</h2>" +
@@ -54,10 +54,8 @@ window.datascience =
 //   "<ul>" +
 //     "<li>Education item</li>" +
 //   "</ul>" +
-  "<h2>EDUCATION</h2>" +
-  // use shared education HTML if available, otherwise fall back to the original placeholder
-  (window.globalSettings && window.globalSettings.educationHTML ? window.globalSettings.educationHTML : "<ul><li>Education item</li></ul>") +
-
+    "<h2>EDUCATION</h2>" +
+    window.globalSettings.educationHTML +
 
   "<h2>SKILLS, EXPERTISE & TOOLS</h2>" +
 
@@ -84,6 +82,5 @@ window.datascience =
 //     "<li>Lorem ipsum</li>" +
 //     "<li>Lorem ipsum</li>" +
 //   "</ul>";
-  "<h3>Languages</h3>" +
-  (window.globalSettings && window.globalSettings.languagesHTML ? window.globalSettings.languagesHTML : "<ul><li>Lorem ipsum</li></ul>");
-
+"<h3>Languages</h3>" +
+window.globalSettings.languagesHTML;
