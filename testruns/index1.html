@@ -141,6 +141,7 @@
     .niche-btn {
       background: var(--accent) !important;
       color: #fff;
+      margin-bottom: 6px !important;
     }
 
     .niche-btn:hover,
@@ -177,10 +178,35 @@
       font-variation-settings: "wght" 700, "opsz" 24;
     }
 
-    #details-content p {
+    /* #details-content p {
       font-size: var(--text);
       margin-bottom: 4px;
       font-variation-settings: "wght" 400, "opsz" 14;
+    } */
+
+    /* Remove line spacing + margins for main profile details */
+    #details-content p {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    }
+
+    /* Remove line spacing + margins for SEO Content Writer block */
+    #niche-contentwriter p {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    }
+
+    .niche-heading {
+    font-size: var(--h2);
+    font-weight: 700;
+    margin-top: 18px !important;
+    margin-bottom: 6px !important;
+    font-family: var(--font-stack);
+    font-optical-sizing: auto;
+    font-variation-settings: "wght" 700, "opsz" 18;
+    transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
     }
 
     /* niche-contentwriter container */
@@ -278,9 +304,8 @@
 
       const niche = [
         "SEO Content Writer",
-        "General Virtual Assistant",
-        "Sales Data Analyst",
-        "Teacher"
+        "General VA",
+        "Data Analyst"
       ];
 
       const contentMap = {
@@ -307,9 +332,25 @@
           "<p>OLJ: 3977015 (OnlineJobs.ph)</p>" +
           "<p>Calamba, Misamis Occidental, Philippines</p>",
 
-        "General Virtual Assistant": "<p>General VA info.</p>",
-        "Sales Data Analyst": "<p>Sales Data Analyst info.</p>",
-        "Teacher": "<p>Teacher info.</p>"
+        "General VA": 
+            "<p class='niche-heading'>VIRTUAL ASSISTANT</p>" +
+            "<p>0981-359-0568</p>" +
+            "<p>onbizgladyslacia@gmail.com</p>" +
+            "<p>freelancergladyslacia</p>" +
+            "<p>onbizgladyslacia</p>" +
+            "<p>Upwork: 01496f55ce7a5e12b1</p>" +
+            "<p>OLJ: 3977015 (OnlineJobs.ph)</p>" +
+            "<p>Calamba, Misamis Occidental, Philippines</p>",
+
+        "Data Analyst": 
+            "<p class='niche-heading'>SALES DATA ANALYST</p>" +
+            "<p>0981-359-0568</p>" +
+            "<p>onbizgladyslacia@gmail.com</p>" +
+            "<p>freelancergladyslacia</p>" +
+            "<p>onbizgladyslacia</p>" +
+            "<p>Upwork: 01496f55ce7a5e12b1</p>" +
+            "<p>OLJ: 3977015 (OnlineJobs.ph)</p>" +
+            "<p>Calamba, Misamis Occidental, Philippines</p>"
       };
 
       const seocontentwriter =
