@@ -27,8 +27,10 @@ window.seocontentwriter =
   "</ul>" +
   "<p class='projects'>Projects:</p>" +
   "<ol>" +
-    "<li>Project item</li>" +
-    "<li>Project item</li>" +
+    "<li>Credit Card Traps to Avoid: 7 Costly Financing Mistakes That Drain Your Wallet <br> Finance Blog <br> Google Docs, Perplexity, Ahrefs, Google Search (April 2025)</li>" +
+    "<li>2 Project item</li>" +
+    "<li>3 Project item</li>" +
+    "<li>4 Project item</li>" +
   "</ol>" +
 
   "<p class='job-title'>Job Title</p>" +
@@ -39,8 +41,8 @@ window.seocontentwriter =
   "</ul>" +
   "<p class='projects'>Projects:</p>" +
   "<ol>" +
-    "<li>Project item</li>" +
-    "<li>Project item</li>" +
+    "<li>5 Project item</li>" +
+    "<li>6 Project item</li>" +
   "</ol>" +
 
   "<h2>CERTIFICATIONS & TRAININGS</h2>" +

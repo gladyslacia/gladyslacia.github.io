@@ -27,8 +27,8 @@ window.virtualassistant =
   "</ul>" +
   "<p class='projects'>Projects:</p>" +
   "<ol>" +
-    "<li>Project item</li>" +
-    "<li>Project item</li>" +
+    "<li>7 Project item</li>" +
+    "<li>8 Project item</li>" +
   "</ol>" +
 
   "<p class='job-title'>Job Title</p>" +
@@ -39,8 +39,8 @@ window.virtualassistant =
   "</ul>" +
   "<p class='projects'>Projects:</p>" +
   "<ol>" +
-    "<li>Project item</li>" +
-    "<li>Project item</li>" +
+    "<li>9 Project item</li>" +
+    "<li>10 Project item</li>" +
   "</ol>" +
 
   "<h2>CERTIFICATIONS & TRAININGS</h2>" +

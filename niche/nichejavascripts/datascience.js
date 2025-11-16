@@ -14,7 +14,7 @@ window.niches["Data Analyst"] =
 
 window.datascience = 
   "<h2>PROFESSIONAL SUMMARY</h2>" +
-  "<p>Results-driven Data Analyst with a strong mathematical foundation and expertise in pattern recognition, abstraction, and problem-solving. Adept at synthesizing complex data into actionable insights and communicating findings clearly to both technical and non-technical audiences. Skilled in constructing mathematical models, validating hypotheses, and supporting data-driven decisions in fast-paced, evolving business environments. Proficient in tools such as Python, SQL, Power BI, and Excel, with a proven ability to combine data and strategy. Gained hands-on training in data cleaning and preparation, data visualization, data privacy and ethics. Specialized in MySQL and PostgreSQL for finance analytics, marketing analytics, sales and service analytics, and data governance. Capable in applying data-based decision-making, cost-benefit analysis, and strategic data interpretation across business contexts, with a solid foundation in both core and advanced data analysis tools and methods.</p>" +
+  "<p>As a detail-oriented professional, I craft effective content strategies, streamline workflows, and apply impactful SEO practices to help businesses grow sustainably. With years of continuous upskilling in research, business correspondence, content development, and admin support, I balance technical precision and creativity in every task. I can manage 5-8 projects at once, coordinate daily operations, and optimize tasks for timely, accurate delivery. My SEO skill includes on-page optimisation, keyword research, and content structuring, complemented by blogging and social media management using tools like Blogger, WordPress, Notion, Zapier, and Google Search Console. I am trained in English communication, active listening, and project coordination, with working knowledge of video editing in CapCut and graphic design in Canva. I work well in fast-paced virtual environments and adapt quickly to new tools, consistently delivering clear, targeted outputs that support business growth.</p>" +
 
   "<h2>WORK EXPERIENCE & PROJECTS</h2>" +
 
@@ -27,8 +27,8 @@ window.datascience =
   "</ul>" +
   "<p class='projects'>Projects:</p>" +
   "<ol>" +
-    "<li>Project item</li>" +
-    "<li>Project item</li>" +
+    "<li>11 Project item</li>" +
+    "<li>12 Project item</li>" +
   "</ol>" +
 
   "<p class='job-title'>Job Title</p>" +
@@ -39,8 +39,8 @@ window.datascience =
   "</ul>" +
   "<p class='projects'>Projects:</p>" +
   "<ol>" +
-    "<li>Project item</li>" +
-    "<li>Project item</li>" +
+    "<li>13 Project item</li>" +
+    "<li>14 Project item</li>" +
   "</ol>" +
 
   "<h2>CERTIFICATIONS & TRAININGS</h2>" +
