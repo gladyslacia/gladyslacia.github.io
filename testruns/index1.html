@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gladys Lacia</title>
 
-  <!-- Preconnect + Variable Inter (with optical sizing & variable weights) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Variable Inter with opsz and wght axis; display=swap for good UX -->
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..72,300..800&display=swap" rel="stylesheet">
 
   <link rel="icon" type="image/png" href="https://gladyslacia.github.io/assets/favicongdlcgithubio.png" />
@@ -18,28 +17,26 @@
       --primary: #024570;
       --accent: #108a00;
 
-      /* CONSISTENT FONT SYSTEM */
       --font-family-base: "Inter", sans-serif;
       --font-stack: var(--font-family-base), Arial, sans-serif,
                     "Apple Color Emoji", "Segoe UI Emoji",
                     "Segoe UI Symbol", "Noto Color Emoji";
 
-      --text: 15px;   /* base font-size */
+      --text: 15px;
       --h1: 28px;
       --h2: 20px;
       --h3: 17px;
 
-      --line: 1.65;  /* improved line-height for readability */
-      --scale-ease: 180ms; /* transition duration for weight/vars */
+      --line: 1.5;  
+      --scale-ease: 170ms; 
     }
 
-    /* Global reset + consistent font stack */
     * {
       box-sizing: border-box;
       font-family: var(--font-stack);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      font-optical-sizing: auto; /* enable optical sizing where supported */
+      font-optical-sizing: auto; 
       letter-spacing: 0;
     }
 
@@ -55,12 +52,10 @@
       color: #000;
       font-size: var(--text);
       font-family: var(--font-stack);
-      /* Favor variable font axes where available */
       font-variation-settings: "wght" 400, "opsz" 14;
       transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
     }
 
-    /* Headings + paragraphs inherit same family and optical sizing */
     h1, h2, h3, p {
       margin: 0;
       padding: 0;
@@ -102,7 +97,6 @@
       padding-left: 1.25rem;
     }
 
-    /* Top menu */
     .top-menu-wrapper {
       display: flex;
       justify-content: center;
@@ -126,10 +120,9 @@
       transition: background .15s, transform .08s, font-variation-settings var(--scale-ease);
       white-space: nowrap;
       font-family: var(--font-stack);
-      font-variation-settings: "wght" 500, "opsz" 14; /* slightly heavier by default */
+      font-variation-settings: "wght" 500, "opsz" 14;
     }
 
-    /* On hover/focus make weight slightly bolder with smooth transition (works with variable font) */
     .menu-btn:not(#home-btn):hover,
     .menu-btn:not(#home-btn):focus,
     .menu-btn.active {
@@ -178,20 +171,12 @@
       font-variation-settings: "wght" 700, "opsz" 24;
     }
 
-    /* #details-content p {
-      font-size: var(--text);
-      margin-bottom: 4px;
-      font-variation-settings: "wght" 400, "opsz" 14;
-    } */
-
-    /* Remove line spacing + margins for main profile details */
     #details-content p {
     margin: 0 !important;
     padding: 0 !important;
     line-height: 1 !important;
     }
 
-    /* Remove line spacing + margins for SEO Content Writer block */
     #niche-contentwriter p {
     margin: 0 !important;
     padding: 0 !important;
@@ -209,7 +194,6 @@
     transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
     }
 
-    /* niche-contentwriter container */
     #niche-contentwriter {
       display: none;
       margin-top: 18px;
@@ -217,10 +201,9 @@
       font-variation-settings: "wght" 400, "opsz" 14;
     }
 
-    /* consistent p-based titles with no extra spacing */
     .job-title,
     .company-line,
-    .projects-label {
+    .projects {
       font-size: var(--text);
       margin: 0;
       padding: 0;
@@ -235,7 +218,6 @@
       font-weight: 700;
       margin-top: 12px;
       margin-bottom: 4px;
-      /* ensure opsz set for larger size */
       font-variation-settings: "wght" 700, "opsz" 16;
     }
 
@@ -245,14 +227,13 @@
       font-variation-settings: "wght" 400, "opsz" 14;
     }
 
-    .projects-label {
+    .projects {
       font-weight: 700;
       margin-bottom: 4px;
       margin-top: 6px;
       font-variation-settings: "wght" 700, "opsz" 14;
     }
 
-    /* small screens adjustments */
     @media (max-width: 600px) {
       :root { --text: 14px; --h3: 16px; --h2: 18px; --h1: 24px; --line: 1.6; }
       .profile img { width: 110px; height: 110px; }
@@ -265,7 +246,7 @@
 <body>
 
   <div class="top-menu-wrapper">
-    <div class="top-menu" id="topMenu">
+    <div class="top-menu" id="topmenu">
       <button class="menu-btn" data-key="who">Who am I?</button>
       <button class="menu-btn" data-key="done">What have I done?</button>
       <button class="menu-btn" data-key="learned">What have I learned?</button>
@@ -295,7 +276,7 @@
 
   <script>
     (function () {
-      const menu = document.getElementById('topMenu');
+      const menu = document.getElementById('topmenu');
       const detailsContent = document.getElementById('details-content');
       const original = detailsContent.innerHTML;
       const originalButtons = menu.innerHTML;
@@ -321,7 +302,7 @@
         can: "<p>What I can do: list of services or skills.</p>"
       };
 
-      const nicheDetails = {
+      const niches = {
         "SEO Content Writer":
           "<p class='niche-heading'>SEO CONTENT WRITER</p>" +
           "<p>0981-359-0568</p>" +
@@ -366,7 +347,7 @@
           "<li>Bullet item</li>" +
           "<li>Bullet item</li>" +
         "</ul>" +
-        "<p class='projects-label'>Projects:</p>" +
+        "<p class='projects'>Projects:</p>" +
         "<ol>" +
           "<li>Project item</li>" +
           "<li>Project item</li>" +
@@ -378,7 +359,7 @@
           "<li>Bullet item</li>" +
           "<li>Bullet item</li>" +
         "</ul>" +
-        "<p class='projects-label'>Projects:</p>" +
+        "<p class='projects'>Projects:</p>" +
         "<ol>" +
           "<li>Project item</li>" +
           "<li>Project item</li>" +
@@ -422,30 +403,30 @@
           "<li>Lorem ipsum</li>" +
         "</ul>";
 
-      function getMenuButtons() {
+      function menubuttons() {
         return Array.prototype.slice.call(document.querySelectorAll('.menu-btn'));
       }
 
-      function setActive(btn) {
-        getMenuButtons().forEach(function(b){
+      function activemenu(btn) {
+        menubuttons().forEach(function(b){
           b.classList.toggle('active', b === btn);
         });
       }
 
-      function hideContentwriter() {
+      function hidewriter() {
         contentwriter.style.display = 'none';
         contentwriter.innerHTML = "";
       }
 
-      function handleMenuClick(e) {
+      function clickmenu(e) {
         const key = e.currentTarget.dataset.key;
-        setActive(e.currentTarget);
+        activemenu(e.currentTarget);
         detailsContent.innerHTML = contentMap[key] || original;
-        hideContentwriter();
-        addHomeButton();
+        hidewriter();
+        addhomebutton();
       }
 
-      function addHomeButton() {
+      function addhomebutton() {
         if (!document.getElementById('home-btn')) {
           const home = document.createElement('button');
           home.id = 'home-btn';
@@ -455,37 +436,37 @@
           home.addEventListener('click', function () {
             menu.innerHTML = originalButtons;
             detailsContent.innerHTML = original;
-            hideContentwriter();
-            attachMenuEvents();
+            hidewriter();
+            menuactions();
           });
 
           menu.prepend(home);
-          attachMenuEvents();
+          menuactions();
         }
       }
 
       detailsContent.addEventListener('click', function(e){
         if (e.target.matches('.niche-btn')) {
           const name = e.target.textContent.trim();
-          detailsContent.innerHTML = nicheDetails[name] || "<p>" + name + "</p>";
+          detailsContent.innerHTML = niches[name] || "<p>" + name + "</p>";
 
           if (name === "SEO Content Writer") {
             contentwriter.innerHTML = seocontentwriter;
             contentwriter.style.display = 'block';
             contentwriter.scrollIntoView({ behavior: 'smooth' });
           } else {
-            hideContentwriter();
+            hidewriter();
           }
         }
       });
 
-      function attachMenuEvents() {
-        getMenuButtons().forEach(function(btn){
-          btn.addEventListener('click', handleMenuClick);
+      function menuactions() {
+        menubuttons().forEach(function(btn){
+          btn.addEventListener('click', clickmenu);
         });
       }
 
-      attachMenuEvents();
+      menuactions();
     })();
   </script>
 
