@@ -1,3 +1,5 @@
+// seocontentwriter.js
+
 window.niches = window.niches || {};
 
 window.niches["SEO Content Writer"] =
