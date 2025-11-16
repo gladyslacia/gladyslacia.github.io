@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gladys Lacia - Portfolio</title>
+<title>Gladys Lacia</title>
 <style>
   :root {
     --font-family-base: "Inter", sans-serif;
     --primary-color: #024570;
   }
 
-  /* Reset and box-sizing */
   *, *::before, *::after { box-sizing: border-box; }
 
   body {
@@ -18,29 +17,33 @@
     line-height: 1.6;
     background: #fff;
     color: #000;
-    padding: 20px; /* requested overall padding */
+    padding: 20px;
     margin: 0;
   }
 
-  /* Container with side margin of 170px on wide screens, responsive on smaller screens */
   .container {
     margin-left: 170px;
     margin-right: 170px;
     max-width: calc(100% - 340px);
   }
 
-  /* sections spacing: top-bottom 30px, left-right 0 */
   .section {
     margin: 30px 0;
   }
 
+  .top-menu-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
   .top-menu {
     display: flex;
-    gap: 16px;
+    gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0 !important;
-}
+  }
 
   .menu-btn {
     background: var(--primary-color);
@@ -59,7 +62,6 @@
     gap: 24px;
   }
 
-  /* Make the image responsive while keeping a pleasant size on large screens */
   .profile img {
     width: 150px;
     height: 150px;
@@ -68,16 +70,16 @@
     object-fit: cover;
     border-radius: 50%;
     flex: 0 0 auto;
-}
+    border: 7px solid #108a00; /* added */
+  }
 
-  /* Details should grow and not be narrowly constrained */
   .details {
-    flex: 1 1 auto; /* allow to grow */
-    min-width: 0; /* allow words to wrap inside */
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .details h1 {
-    margin: 0 0 8px 0;
+    margin: 0 0 7px 0;
     font-size: 28px;
     font-weight: 700;
     color: #000;
@@ -89,16 +91,13 @@
     line-height: 1.4;
   }
 
-  /* Make contact lines break nicely and prevent overflow */
   .contact-line { word-break: break-word; }
 
-  /* Small visual tweak for very large screens */
   @media (min-width: 1400px) {
     .profile img { width: 170px; height: 170px; }
     .details h1 { font-size: 34px; }
   }
 
-  /* Responsive: when space is limited, reduce side margins and stack layout */
   @media (max-width: 900px) {
     .container { margin-left: 40px; margin-right: 40px; max-width: calc(100% - 80px); }
     .profile { gap: 14px; }
@@ -108,27 +107,12 @@
 
   @media (max-width: 600px) {
     .container { margin-left: 20px; margin-right: 20px; max-width: calc(100% - 40px); }
-    .top-menu { gap: 10px; }
+    .top-menu { gap: 10px; justify-content: flex-start; }
+    .top-menu-wrapper { justify-content: flex-start; }
     .profile { flex-direction: column; align-items: flex-start; }
     .profile img { width: 110px; height: 110px; }
     .details h1 { font-size: 22px; }
   }
-
-  /* Center the top menu and place it outside the container */
-  .top-menu-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0;
-}
-
-  .top-menu {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
 </style>
 </head>
 <body>
@@ -142,9 +126,7 @@
     </div>
   </div>
 
-  <div class="container"">
-
-    
+  <div class="container">
 
     <div class="section profile">
       <img src="https://gladyslacia.github.io/assets/profilepicture1.jpg" alt="Profile Photo" />
