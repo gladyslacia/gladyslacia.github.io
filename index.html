@@ -281,7 +281,136 @@
     <script src="./niche/nichejavascripts/datascience.js"></script>
     <script src="./niche/projects.js"></script>
 
-  <script>
+<script>
+(function () {
+  const menu = document.getElementById('topmenu');
+  const vardetails = document.getElementById('details');
+  const original = vardetails ? vardetails.innerHTML : "";        
+  const resumecontent = document.getElementById('resume');
+
+  // const niche = [
+  //   "SEO Content Writer",
+  //   "General VA",
+  //   "Data Analyst"
+  // ];
+  const niche = window.setniches;
+
+  const target = {
+    who:
+      niche
+        .map(function(item){
+          return "<p><button class='niche-btn'>" + item + "</button></p>";
+        })
+        .join(""),
+
+    done: "<p>Projects and accomplishments go here.</p>",
+    learned: "<p>Skills and learning highlights go here.</p>",
+    can: "<p>What I can do: list of services or skills.</p>"
+  };
+
+  function menubuttons() {
+    return Array.prototype.slice.call(menu.querySelectorAll('.menu-btn[data-key]'));
+  }
+
+  function activemenu(btn) {
+    menubuttons().forEach(function(b){
+      b.classList.toggle('active', b === btn);
+    });
+  }
+
+  function hideresume() {
+    if (!resumecontent) return;
+    resumecontent.style.display = 'none';
+    resumecontent.innerHTML = "";
+  }
+
+  function addhomebutton() {
+    if (document.getElementById('home-btn')) return;
+
+    const home = document.createElement('button');
+    home.id = 'home-btn';
+    home.className = 'menu-btn';
+    home.textContent = 'Home';
+
+    home.addEventListener('click', function () {
+      // ensure home HTML exists (build on demand if needed)
+      if (window.ensureHomeContent) window.ensureHomeContent();
+
+      // restore Home content (fallback to original if homeContent missing)
+      vardetails.innerHTML = window.homeContent || original || "";
+      hideresume();
+
+      menubuttons().forEach(function(b){
+        b.classList.remove('active');
+      });
+
+      const existingHome = document.getElementById('home-btn');
+      if (existingHome) existingHome.remove();
+    });
+
+    menu.prepend(home);
+  }
+
+  function clickmenu(e) {
+    const key = e.currentTarget.dataset.key;
+    if (!key) return;
+
+    activemenu(e.currentTarget);
+    vardetails.innerHTML = target[key] || original;
+    hideresume();
+
+    addhomebutton();
+  }
+
+  function menuactions() {
+    menubuttons().forEach(function(btn){
+      btn.removeEventListener('click', clickmenu);
+      btn.addEventListener('click', clickmenu);
+    });
+  }
+
+  // Handle clicks inside #details (delegated)
+  if (vardetails) {
+    vardetails.addEventListener('click', function(e){
+      if (e.target.matches('.niche-btn')) {
+
+        // Ensure Home button exists when clicking a resume button
+        addhomebutton();
+
+        // Make "Who am I?" active when clicking any resume button
+        const whoBtn = document.querySelector('.menu-btn[data-key="who"]');
+        if (whoBtn) activemenu(whoBtn);
+
+        const name = e.target.textContent.trim();
+        vardetails.innerHTML = (window.niches && window.niches[name]) || "<p>" + name + "</p>";
+
+        if (name === "SEO Content Writer") {
+          resumecontent.innerHTML = window.seocontentwriter || "";
+          resumecontent.style.display = 'block';
+        } else if (name === "General VA") {
+          resumecontent.innerHTML = window.virtualassistant || "";
+          resumecontent.style.display = 'block';
+        } else if (name === "Data Analyst") {
+          resumecontent.innerHTML = window.datascience || "";
+          resumecontent.style.display = 'block';
+        } else {
+          hideresume();
+        }
+
+        // scroll resume into view
+        if (resumecontent && typeof resumecontent.scrollIntoView === 'function') {
+          resumecontent.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  }
+
+  menuactions();
+})();
+</script>
+
+
+  <!-- <script>
   (function () {
     const menu = document.getElementById('topmenu');
     const vardetails = document.getElementById('details');
@@ -365,6 +494,7 @@
 
     vardetails.addEventListener('click', function(e){
       if (e.target.matches('.niche-btn')) {
+
         const name = e.target.textContent.trim();
         vardetails.innerHTML = (window.niches && window.niches[name]) || "<p>" + name + "</p>";
 
@@ -387,7 +517,7 @@
 
     menuactions();
   })();
-  </script>
+  </script> -->
 
 </body>
 </html>

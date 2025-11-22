@@ -35,3 +35,15 @@ window.globalSettings.oljHTML =
 
 window.globalSettings.addressHTML =
     "<p>Calamba, Misamis Occidental, Philippines</p>"
+
+window.setniches = [
+  "SEO Content Writer",
+  "General VA",
+  "Data Analyst"
+];
+
+window.sourceniches = [
+  "seocontentwriter",
+  "virtualassistant",
+  "datascience"
+];
