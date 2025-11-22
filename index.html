@@ -201,6 +201,20 @@
       font-variation-settings: "wght" 400, "opsz" 14;
     }
 
+/* HOME PAGE ONLY — horizontal layout for Resume buttons */
+.resumes-list {
+  display: flex;
+  gap: 12px;          /* same spacing as top menu */
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  justify-content: left;  /* optional: centers buttons */
+}
+
+.resumes-list p {
+  margin: 0;          /* removes spacing that forces vertical stacking */
+}
+
+
     .job-title,
     .company-line,
     .projects {
