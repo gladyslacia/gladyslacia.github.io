@@ -18,6 +18,8 @@
   function collectprojects() {
     const varprojects = [];
 
+    if (!Array.isArray(PROJECTSOURCES)) return varprojects;
+
     PROJECTSOURCES.forEach(function (varName) {
       const fromhtml = window[varName];
       if (!fromhtml || typeof fromhtml !== 'string') return;
@@ -29,6 +31,7 @@
 
       pprojects.forEach(function (p) {
         let next = p.nextSibling;
+        // skip non-element nodes (text, comments)
         while (next && next.nodeType !== Node.ELEMENT_NODE) {
           next = next.nextSibling;
         }
@@ -50,6 +53,7 @@
 
     const heading = document.createElement('p');
     heading.className = 'projects';
+    heading.textContent = 'PROJECTS'; // optional visible heading
 
     const ol = document.createElement('ol');
     varprojects.forEach(function (inner) {
@@ -70,6 +74,26 @@
     else parent.appendChild(newNode);
   }
 
+  // New: populate the #home-projects-list element (if present) with the collected projects
+  function populateHomeProjects(varprojects) {
+    if (!Array.isArray(varprojects) || varprojects.length === 0) return;
+
+    const homeListContainer = document.getElementById('home-projects-list');
+    if (!homeListContainer) return;
+
+    // Clear any existing content
+    homeListContainer.innerHTML = '';
+
+    const ol = document.createElement('ol');
+    varprojects.forEach(function (inner) {
+      const li = document.createElement('li');
+      li.innerHTML = inner;
+      ol.appendChild(li);
+    });
+
+    homeListContainer.appendChild(ol);
+  }
+
   function showprojects() {
     if (document.getElementById(ADDPROJECTS)) return;
     const varprojects = collectprojects();
@@ -79,6 +103,9 @@
     const profile = document.querySelector('.profile');
     if (!profile) return;
     insert(block, profile);
+
+    // Also populate home projects list if it exists
+    populateHomeProjects(varprojects);
   }
 
   function removeprojects() {
@@ -109,9 +136,19 @@
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', attachmenu);
+    document.addEventListener('DOMContentLoaded', function () {
+      attachmenu();
+
+      // Populate home projects list on load (if home exists)
+      const varprojects = collectprojects();
+      populateHomeProjects(varprojects);
+    });
   } else {
     attachmenu();
+
+    // Populate home projects list immediately if DOM is ready
+    const varprojects = collectprojects();
+    populateHomeProjects(varprojects);
   }
 
 })();
