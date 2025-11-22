@@ -10,9 +10,8 @@ window.homeContent =
 
   "<section id='home-projects' style='margin-top:18px;'>" +
     "<h2>PROJECTS</h2>" +
-    "<div id='home-projects-list'>" +
-      "<p>If you added projects to each niche, they'll show here.</p>" +
-    "</div>" +
+    // "<p>Projects and accomplishments go here:</p>" +
+    "<div id='home-projects-list'></div>" +
   "</section>" +
 
   "<section id='home-trainings' style='margin-top:18px;'>" +
