@@ -1,6 +1,5 @@
 (function () {
 
-  // const PROJECTSOURCES = ['seocontentwriter', 'virtualassistant', 'datascience'];
   const PROJECTSOURCES = window.sourceniches;
   const ADDPROJECTS = 'projects-page';
 

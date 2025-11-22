@@ -100,23 +100,57 @@
     return window.homeContent;
   }
 
-  function initHome() {
-    var details = document.getElementById('details');
-    if (!details) return;
+//   function initHome() {
+//     var details = document.getElementById('details');
+//     if (!details) return;
 
-    ensureHomeContent();
+//     ensureHomeContent();
 
-    try {
-      details.innerHTML = window.homeContent;
-    } catch (err) {
-      details.textContent = '';
-    }
+//     try {
+//       details.innerHTML = window.homeContent;
+//     } catch (err) {
+//       details.textContent = '';
+//     }
 
-    // keep delegated listener so .niche-btn clicks still bubble to index.html's handler
-    details.addEventListener('click', function (e) {
-      // intentionally empty — index.html's main script handles these clicks
-    });
+//     // keep delegated listener so .niche-btn clicks still bubble to index.html's handler
+//     details.addEventListener('click', function (e) {
+//       // intentionally empty — index.html's main script handles these clicks
+//     });
+//   }
+function removeHomeBlock(details) {
+  var existing = details.querySelector('#home-block');
+  if (existing) existing.remove();
+}
+
+function initHome() {
+  var details = document.getElementById('details');
+  if (!details) return;
+
+  ensureHomeContent();
+
+  try {
+    // Remove any previous home block to avoid duplicates
+    removeHomeBlock(details);
+
+    // Create a wrapper for all Home sections so we don't overwrite the original contact info
+    var wrapper = document.createElement('div');
+    wrapper.id = 'home-block';
+    wrapper.innerHTML = window.homeContent || '';
+
+    // Append the home block AFTER the existing content in #details (preserves contact lines)
+    details.appendChild(wrapper);
+  } catch (err) {
+    // If anything goes wrong, don't destroy the original details content
+    // leave details as-is.
+    console.error('initHome error', err);
   }
+
+  // keep delegated listener so .niche-btn clicks still bubble to index.html's handler
+  details.addEventListener('click', function (e) {
+    // intentionally empty — index.html's main script handles these clicks
+  });
+}
+
 
   // expose helper so other scripts can force rebuild if needed
   window.ensureHomeContent = ensureHomeContent;
