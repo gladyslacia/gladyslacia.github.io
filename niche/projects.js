@@ -53,7 +53,7 @@
 
     const heading = document.createElement('p');
     heading.className = 'projects';
-    heading.textContent = 'PROJECTS'; // optional visible heading
+    // heading.textContent = 'PROJECTS'; // optional visible heading
 
     const ol = document.createElement('ol');
     varprojects.forEach(function (inner) {
@@ -150,5 +150,15 @@
     const varprojects = collectprojects();
     populateHomeProjects(varprojects);
   }
+
+  // expose a small helper so the main script can repopulate the HOME projects list
+    window.populateHomeProjectsFromSources = function () {
+      try {
+        const varprojects = collectprojects();
+        populateHomeProjects(varprojects);
+      } catch (err) {
+        console.warn('populateHomeProjectsFromSources error', err);
+      }
+    };
 
 })();
