@@ -16,9 +16,6 @@ window.homeContent =
 
   "<section id='home-trainings' style='margin-top:18px;'>" +
     "<h2>TRAININGS & CERTIFICATIONS</h2>" +
-    "<ul>" +
-      "<li>Certification 1 (you can edit these in assets/settings.js)</li>" +
-      "<li>Certification 2</li>" +
-      "<li>Certification 3</li>" +
-    "</ul>" +
+    // "<p>Skills and learning highlights go here:</p>" +
+    "<div id='home-trainings-list'></div>" +
   "</section>";
