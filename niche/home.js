@@ -13,7 +13,7 @@ window.homeContent =
   "</section>" +
 
   "<section id='home-trainings' style='margin-top:18px;'>" +
-    "<h2>TRAININGS & CERTIFICATIONS</h2>" +
+    "<h2>TRAININGS</h2>" +
     // "<p>Skills and learning highlights go here:</p>" +
     "<div id='home-trainings-list'></div>" +
   "</section>";

@@ -72,7 +72,7 @@
     container.style.marginTop = '18px';
 
     const heading = document.createElement('h2');
-    heading.textContent = 'CERTIFICATES & TRAININGS';
+    heading.textContent = 'TRAININGS';
     container.appendChild(heading);
 
     if (!items || items.length === 0) {
