@@ -3,8 +3,13 @@ window.homeContent =
   "<section id='home-resumes'>" +
     "<h2>RESUMES</h2>" +
     // "<p>Pick a niche above (or below) to view the full resume. Quick links:</p>" +
+    // window.setniches
+    // .map(name => "<p><button class='niche-btn'>" + name + "</button></p>")
+    // .join("") +
     window.setniches
-    .map(name => "<p><button class='niche-btn'>" + name + "</button></p>")
+    .map(function(item){
+    return "<p><button class='niche-btn'>" + item + "</button></p>";
+        })
     .join("") +
   "</section>" +
 
