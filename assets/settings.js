@@ -28,10 +28,10 @@ window.globalSettings.facebookHTML =
     "<p>&#128373; onbizgladyslacia</p>"
 
 window.globalSettings.UpworkHTML =
-    "<p>Upwork: 01496f55ce7a5e12b1</p>"
+    "<p>&#128187; Upwork: 01496f55ce7a5e12b1</p>"
 
 window.globalSettings.oljHTML =
-    "<p>OnlineJobs.ph: 3977015</p>"
+    "<p>&#128187; OnlineJobs.ph: 3977015</p>"
 
 window.globalSettings.addressHTML =
     "<p>&#128236; Calamba, Misamis Occidental, Philippines</p>"
