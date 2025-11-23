@@ -22,10 +22,10 @@ window.globalSettings.businessemailHTML =
     "<p>&#128231; Email: <a href='mailto:onbizgladyslacia@gmail.com' target='_blank'>onbizgladyslacia@gmail.com</a></p>"
 
 window.globalSettings.linkedinHTML =
-    "<p>&#128269; LinkedIn: <a href='https://www.linkedin.com/in/freelancergladyslacia' target='_blank'>freelancergladyslacia</a></p>"
+    "<p>&#128100; LinkedIn: <a href='https://www.linkedin.com/in/freelancergladyslacia' target='_blank'>freelancergladyslacia</a></p>"
 
 window.globalSettings.facebookHTML =
-    "<p>&#128373; FB: <a href='https://www.facebook.com/onbizgladyslacia' target='_blank'>onbizgladyslacia</a></p>"
+    "<p>&#128172; FB: <a href='https://www.facebook.com/onbizgladyslacia' target='_blank'>onbizgladyslacia</a></p>"
 
 window.globalSettings.UpworkHTML =
     "<p>&#128187; Upwork: <a href='https://www.upwork.com/freelancers/~01496f55ce7a5e12b1' target='_blank'>01496f55ce7a5e12b1</a></p>"
