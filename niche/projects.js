@@ -51,9 +51,6 @@
     const projectdiv = document.createElement('div');
     projectdiv.id = ADDPROJECTS;
 
-    // const heading = document.createElement('p');
-    // heading.className = 'projects';
-    // heading.textContent = 'PROJECTS'; // optional visible heading
     const heading = document.createElement('h2');
     heading.textContent = 'PROJECTS';
     projectdiv.appendChild(heading);
