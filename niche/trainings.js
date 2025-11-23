@@ -1,9 +1,11 @@
 // ./niche/trainings.js
 (function () {
-  const SOURCES = window.sourceniches || []; // e.g. ["seocontentwriter","virtualassistant","datascience"]
+  const SOURCES = () => (window.sourceniches || []);
   const TARGET_ID = 'trainings-page';
+  const HOME_LIST_ID = 'home-trainings-list';
   const MENU_ID = 'topmenu';
 
+  // Simple safe parser (works if DOMParser not available or for weird markup)
   function safeParse(html) {
     try {
       return new DOMParser().parseFromString(html, 'text/html');
@@ -16,15 +18,21 @@
     }
   }
 
-  // Collect all training/certification <li> texts from sources
+  // Collect <li> from the UL that follows an H2 containing "cert"
   function collectTrainings() {
     const items = [];
+    const srcs = SOURCES();
+    if (!Array.isArray(srcs) || srcs.length === 0) {
+      console.debug('trainings: no window.sourceniches defined or empty');
+      return items;
+    }
 
-    if (!Array.isArray(SOURCES)) return items;
-
-    SOURCES.forEach(function (varName) {
+    srcs.forEach(function (varName) {
       const fromhtml = window[varName];
-      if (!fromhtml || typeof fromhtml !== 'string') return;
+      if (!fromhtml || typeof fromhtml !== 'string') {
+        console.debug('trainings: source missing or not string for', varName);
+        return;
+      }
 
       const doc = safeParse(fromhtml);
       if (!doc) return;
@@ -46,15 +54,18 @@
               if (text) items.push(text);
             });
             break; // only use first matching UL after the H2
+          } else {
+            console.debug('trainings: found H2 but no UL after it for', varName, h2.textContent.trim());
           }
         }
       }
     });
 
+    console.debug('trainings: collected items count =', items.length);
     return items;
   }
 
-  // Build the trainings page DOM node
+  // Build the trainings page DOM node (for "What have I learned?")
   function buildTrainingsNode(items) {
     const container = document.createElement('div');
     container.id = TARGET_ID;
@@ -74,7 +85,6 @@
     const ol = document.createElement('ol');
     items.forEach(function (inner) {
       const li = document.createElement('li');
-      // preserve HTML inside each li (like links, emphasis) by setting innerHTML
       li.innerHTML = inner;
       ol.appendChild(li);
     });
@@ -83,36 +93,43 @@
     return container;
   }
 
+  // Populate home trainings container (#home-trainings-list)
   function populateHomeTrainings(items) {
-    const container = document.getElementById('home-trainings-list');
-    if (!container) return;
+    const container = document.getElementById(HOME_LIST_ID);
+    if (!container) {
+      // Not an error — home may not exist on this route
+      console.debug('trainings: #home-trainings-list not found; skipping home population');
+      return;
+    }
 
     container.innerHTML = '';
 
     if (!items || items.length === 0) {
-        container.innerHTML = '<p>No trainings found.</p>';
-        return;
+      container.innerHTML = '<p>No trainings found.</p>';
+      return;
     }
 
     const ol = document.createElement('ol');
     items.forEach(inner => {
-        const li = document.createElement('li');
-        li.innerHTML = inner;
-        ol.appendChild(li);
+      const li = document.createElement('li');
+      li.innerHTML = inner;
+      ol.appendChild(li);
     });
 
     container.appendChild(ol);
-    }
-
+    console.debug('trainings: populated #home-trainings-list with', items.length, 'items');
+  }
 
   // Insert the trainings node immediately after the .profile element
   function insertAfterProfile(newNode) {
     const profile = document.querySelector('.profile');
-    if (!profile || !newNode) return;
+    if (!profile || !newNode) {
+      console.debug('trainings: cannot insertAfterProfile - .profile or newNode missing');
+      return;
+    }
     const parent = profile.parentNode;
     if (!parent) return;
 
-    // if there's already a trainings node, replace it
     const existing = document.getElementById(TARGET_ID);
     if (existing) {
       parent.replaceChild(newNode, existing);
@@ -128,28 +145,25 @@
     if (existing) existing.remove();
   }
 
-  // Populate and show trainings block (used when 'learned' is clicked)
+  // Show trainings only when 'learned' menu is clicked
   function showTrainings() {
-    try {
-      const items = collectTrainings();
-      const node = buildTrainingsNode(items);
-      insertAfterProfile(node);
-        //   insertpopulate
-        populateHomeTrainings(items);
-      // scroll into view a tick later so layout settles
-      setTimeout(function () {
-        const t = document.getElementById(TARGET_ID);
-        if (t && typeof t.scrollIntoView === 'function') t.scrollIntoView({ behavior: 'smooth' });
-      }, 0);
-    } catch (err) {
-      console.warn('showTrainings error', err);
-    }
+    const items = collectTrainings();
+    const node = buildTrainingsNode(items);
+    insertAfterProfile(node);
+    populateHomeTrainings(items);
+    setTimeout(function () {
+      const t = document.getElementById(TARGET_ID);
+      if (t && typeof t.scrollIntoView === 'function') t.scrollIntoView({ behavior: 'smooth' });
+    }, 0);
   }
 
-  // Attach listener to the top menu so trainings only appear on the 'learned' page
+  // Attach menu listener so trainings only appear on the 'learned' page
   function attachMenuListener() {
     const menu = document.getElementById(MENU_ID);
-    if (!menu) return;
+    if (!menu) {
+      console.debug('trainings: topmenu not found');
+      return;
+    }
 
     menu.addEventListener('click', function (e) {
       const btn = e.target.closest('.menu-btn[data-key]');
@@ -157,41 +171,83 @@
       const key = btn.dataset.key;
 
       if (key === 'learned') {
-        // show trainings
         showTrainings();
-        // ensure other content that's normally shown for 'learned' is left intact
       } else {
-        // remove trainings whenever another menu is shown
         removeTrainingsNode();
       }
     });
 
-    // Also hide trainings when Home button is clicked (home button has id 'home-btn')
+    // also remove trainings when Home button is clicked
     document.addEventListener('click', function (e) {
       const homeBtn = e.target.closest('#home-btn');
-      if (homeBtn) {
-        removeTrainingsNode();
-      }
+      if (homeBtn) removeTrainingsNode();
     });
   }
 
-  // init on DOM ready: do NOT show trainings by default
+  // Helper: try to initialize but retry a few times if sources not ready
+  function initWithRetries(maxAttempts = 10, delay = 200) {
+    let attempts = 0;
+    function tryInit() {
+      attempts++;
+      const srcs = SOURCES();
+      const haveSources = Array.isArray(srcs) && srcs.length > 0;
+      const haveSourceValues = haveSources && srcs.some(n => typeof window[n] === 'string');
+
+      if (haveSources && haveSourceValues) {
+        console.debug('trainings: sources ready; attaching listeners and populating home');
+        attachMenuListener();
+        // populate home immediately
+        const initial = collectTrainings();
+        populateHomeTrainings(initial);
+      } else {
+        if (attempts < maxAttempts) {
+          console.debug('trainings: sources not ready yet (attempt', attempts, '), retrying in', delay, 'ms');
+          setTimeout(tryInit, delay);
+        } else {
+          console.warn('trainings: sources not available after retries. make sure trainings.js is loaded after your niche scripts and window.sourceniches/window.<source> variables are defined.');
+          // Still attach menu so that when user clicks learned later, it will try to collect once more:
+          attachMenuListener();
+        }
+      }
+    }
+    tryInit();
+  }
+
+  // start when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
-      attachMenuListener();
+      initWithRetries(12, 200); // ~2.4s total retry window
     });
   } else {
-    attachMenuListener();
-    // Populate home trainings on load
-    const initial = collectTrainings();
-    populateHomeTrainings(initial);
-
+    initWithRetries(12, 200);
   }
 
-  // Expose helper if you ever want to programmatically re-populate
-  window.populateTrainingsFromSources = function () {
-    // showTrainings will replace existing node
-    showTrainings();
-  };
+  // expose helper to re-run population manually if you want
+//   window.populateTrainingsFromSources = function () {
+//     const items = collectTrainings();
+//     populateHomeTrainings(items);
+//     // replace in-learned page if visible
+//     const existing = document.getElementById(TARGET_ID);
+//     if (existing) {
+//       const node = buildTrainingsNode(items);
+//       existing.parentNode.replaceChild(node, existing);
+//     }
+//   };
+// safe public helper to repopulate both home and the "learned" block
+    window.populateTrainingsFromSources = function () {
+    try {
+        const items = collectTrainings();         // uses the script's collectTrainings()
+        populateHomeTrainings(items);             // fills #home-trainings-list if present
+
+        // if the in-page trainings block is visible, replace it so it stays in sync
+        const existing = document.getElementById(TARGET_ID);
+        if (existing) {
+        const node = buildTrainingsNode(items);
+        existing.parentNode.replaceChild(node, existing);
+        }
+    } catch (err) {
+        console.warn('populateTrainingsFromSources error', err);
+    }
+    };
 
 })();
