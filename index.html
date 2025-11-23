@@ -121,6 +121,12 @@
       margin-top: 12px;
     }
 
+    .footer-contact {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .menu-btn, .niche-btn {
       background: var(--primary);
       color: #fff;
@@ -505,13 +511,57 @@
 </script>
 
 <!-- footer -->
-  <div class="bottom-footer">
-    <div class="top-menu" id="topmenu">
-      <button class="menu-btn" data-key="who">Who am I?</button>
-      <button class="menu-btn" data-key="done">What have I done?</button>
-      <button class="menu-btn" data-key="learned">What have I learned?</button>
-      <button class="menu-btn" data-key="can">What can I do?</button>
-    </div>
+  <!-- <div class="bottom-footer"> -->
+    <!-- <div class="footer-contact"> -->
+      <!-- <button class="menu-btn" data-key="who">Who am I?</button> -->
+      <!-- window.globalSettings.businessphoneHTML() -->
+      <!-- window.globalSettings.businessphoneHTML() -->
+      <!-- <p>cscds</p>
+      <p>cscds</p>
+      <p>cscds</p> -->
+      <!-- <button class="menu-btn" data-key="done">What have I done?</button> -->
+      <!-- <button class="menu-btn" data-key="learned">What have I learned?</button> -->
+      <!-- <button class="menu-btn" data-key="can">What can I do?</button> -->
+    <!-- </div> -->
+  <!-- </div> -->
+
+  <!-- footer (replace existing) -->
+<div class="bottom-footer">
+  <div class="footer-contact" id="footer-contact">
+    <!-- content will be injected from assets/settings.js -->
   </div>
+</div>
+
+<!-- populate footer from settings.js (place near end of body) -->
+<script>
+(function () {
+  // safe accessor: returns either the string or result of function
+  function getSettingHTML(key) {
+    try {
+      var val = window.globalSettings && window.globalSettings[key];
+      if (!val) return "";
+      if (typeof val === "function") return String(val());
+      return String(val);
+    } catch (err) {
+      return "";
+    }
+  }
+
+  var footer = document.getElementById('footer-contact');
+  if (!footer) return;
+
+  // order and keys you want to show
+  var parts = [
+    getSettingHTML('businessphoneHTML'),
+    getSettingHTML('businessemailHTML'),
+    getSettingHTML('linkedinHTML'),
+    getSettingHTML('facebookHTML')
+  ];
+
+  // join and set. Trim to avoid accidental extra whitespace/empties.
+  footer.innerHTML = parts.filter(Boolean).join("\n");
+})();
+</script>
+
 </body>
 </html>
