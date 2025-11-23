@@ -1,3 +1,4 @@
+// ./niche/projects.js
 (function () {
 
   const PROJECTSOURCES = window.sourceniches;
@@ -31,7 +32,6 @@
 
       pprojects.forEach(function (p) {
         let next = p.nextSibling;
-        // skip non-element nodes (text, comments)
         while (next && next.nodeType !== Node.ELEMENT_NODE) {
           next = next.nextSibling;
         }
@@ -74,14 +74,12 @@
     else parent.appendChild(newNode);
   }
 
-  // New: populate the #home-projects-list element (if present) with the collected projects
   function populateHomeProjects(varprojects) {
     if (!Array.isArray(varprojects) || varprojects.length === 0) return;
 
     const homeListContainer = document.getElementById('home-projects-list');
     if (!homeListContainer) return;
 
-    // Clear any existing content
     homeListContainer.innerHTML = '';
 
     const ol = document.createElement('ol');
@@ -104,7 +102,6 @@
     if (!profile) return;
     insert(block, profile);
 
-    // Also populate home projects list if it exists
     populateHomeProjects(varprojects);
   }
 
@@ -139,19 +136,16 @@
     document.addEventListener('DOMContentLoaded', function () {
       attachmenu();
 
-      // Populate home projects list on load (if home exists)
       const varprojects = collectprojects();
       populateHomeProjects(varprojects);
     });
   } else {
     attachmenu();
 
-    // Populate home projects list immediately if DOM is ready
     const varprojects = collectprojects();
     populateHomeProjects(varprojects);
   }
 
-  // expose a small helper so the main script can repopulate the HOME projects list
     window.populateHomeProjectsFromSources = function () {
       try {
         const varprojects = collectprojects();

@@ -1,4 +1,4 @@
-// niche/home.js
+// ./niche/home.js
 window.homeContent = 
   "<section id='home-resumes'>" +
     "<h2>RESUMES</h2>" +

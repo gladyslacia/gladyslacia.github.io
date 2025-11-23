@@ -42,7 +42,6 @@
 
     html, body {
       height: 100%;
-      /* added below */
       margin: 0;
     }
 
@@ -56,7 +55,6 @@
       font-family: var(--font-stack);
       font-variation-settings: "wght" 400, "opsz" 14;
       transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
-      /* added below */
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -170,7 +168,6 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 0 16px;
-      /* added below */
       flex: 1;
     }
 
@@ -207,7 +204,6 @@
     line-height: 1 !important;
     }
 
-    /* to be fixed */
     #home p {
     margin: 0 !important;
     padding: 0 !important;
@@ -232,7 +228,6 @@
       font-variation-settings: "wght" 400, "opsz" 14;
     }
 
-    /* to be fixed */
     #home {
       display: none;
       margin-top: 18px;
@@ -312,7 +307,6 @@
     </div>
 
     <div id="resume"></div>
-    <!-- to be fixed -->
     <div id="home"></div>
 
   </div>
@@ -332,19 +326,12 @@
     const vardetails = document.getElementById('details');
     const original = vardetails.innerHTML;
     const resumecontent = document.getElementById('resume');
-    const homecontent = document.getElementById('home'); // <-- use home div
+    const homecontent = document.getElementById('home'); 
 
     const niche = window.setniches;
 
     const target = {
       who: window.getNicheButtonsHTML(),
-      // who: 
-        // niche
-        //   .map(function(item){
-        //     return "<p><button class='niche-btn'>" + item + "</button></p>";
-        //   })
-        //   .join(""),
-
       done: "<p>Projects and accomplishments go here.</p>",
       learned: "<p>Skills and learning highlights go here.</p>",
       can: "<p>What I can do: list of services or skills.</p>"
@@ -368,7 +355,6 @@
     function hideHome() {
       if (!homecontent) return;
       homecontent.style.display = 'none';
-      // keep HTML so it can be re-shown
     }
 
     function addhomebutton() {
@@ -380,23 +366,17 @@
       home.textContent = 'Home';
 
       home.addEventListener('click', function () {
-        // restore details
         vardetails.innerHTML = original;
-
-        // hide resume
         hideResume();
 
         if (homecontent) {
           homecontent.innerHTML = window.homeContent || "";
           homecontent.style.display = 'block';
 
-          // populate the home projects list if the helper exists
           if (typeof window.populateHomeProjectsFromSources === 'function') {
-            // run immediately
             window.populateHomeProjectsFromSources();
           }
 
-          // populate the home trainings list if the helper exists
           if (typeof window.populateTrainingsFromSources === 'function') {
             window.populateTrainingsFromSources();
           }
@@ -419,7 +399,6 @@
 
       activemenu(e.currentTarget);
 
-      // hide home and resume when viewing a menu section
       hideHome();
       hideResume();
 
@@ -435,25 +414,19 @@
       });
     }
 
-  // --- Shared niche selection handler ---
     function handleNicheSelection(name) {
       name = (name || "").trim();
       if (!name) return;
 
-      // ensure Home button is present (so user can return later)
       if (typeof addhomebutton === 'function') addhomebutton();
 
-      // mark the "Who am I?" menu button active so UI matches behavior
       var whoBtn = menu.querySelector('.menu-btn[data-key="who"]');
       if (whoBtn) activemenu(whoBtn);
 
-      // show niche summary in details
       vardetails.innerHTML = (window.niches && window.niches[name]) || "<p>" + name + "</p>";
 
-      // hide home when showing a niche resume
       hideHome();
 
-      // show specific resume content if available
       if (name === "SEO Content Writer") {
         resumecontent.innerHTML = window.seocontentwriter || "";
         resumecontent.style.display = 'block';
@@ -467,11 +440,9 @@
         hideResume();
       }
 
-      // scroll to resume
       resumecontent.scrollIntoView({ behavior: 'smooth' });
     }
-    
-    // wire up clicks in the #details area (original behavior)
+
     vardetails.addEventListener('click', function(e){
       if (e.target.matches('.niche-btn')) {
         const name = e.target.textContent;
@@ -479,7 +450,6 @@
       }
     });
 
-    // ALSO wire up clicks inside the #home area so the same buttons behave identically
     if (homecontent) {
       homecontent.addEventListener('click', function(e){
         if (e.target.matches('.niche-btn')) {
@@ -491,16 +461,12 @@
 
     menuactions();
 
-    // If we have a home div, populate it and show it immediately.
     if (homecontent) {
-      // populate from niche/home.js if available
       if (typeof window.homeContent === 'string' && window.homeContent.trim() !== '') {
         homecontent.innerHTML = window.homeContent;
       }
-      // make sure it is visible
       homecontent.style.display = 'block';
 
-      // populate home projects/trainings if helpers exist
       if (typeof window.populateHomeProjectsFromSources === 'function') {
         window.populateHomeProjectsFromSources();
       }
@@ -514,17 +480,13 @@
   })();
   </script>
 
-  <!-- footer (replace existing) -->
   <div class="bottom-footer">
     <div class="footer-contact" id="footercontact">
-      <!-- content will be injected from assets/settings.js -->
     </div>
   </div>
 
-<!-- populate footer from settings.js (place near end of body) -->
   <script>
   (function () {
-    // safe accessor: returns either the string or result of function
     function getSettingHTML(key) {
       try {
         var val = window.globalSettings && window.globalSettings[key];
@@ -539,7 +501,6 @@
     var footer = document.getElementById('footercontact');
     if (!footer) return;
 
-    // order and keys you want to show
     var contacts = [
       getSettingHTML('businessphoneHTML'),
       getSettingHTML('businessemailHTML'),
@@ -547,7 +508,6 @@
       getSettingHTML('facebookHTML')
     ];
 
-    // join and set. Trim to avoid accidental extra whitespace/empties.
     footer.innerHTML = contacts.filter(Boolean).join("\n");
   })();
   </script>

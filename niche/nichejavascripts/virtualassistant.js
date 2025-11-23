@@ -1,4 +1,4 @@
-// virtualassistant.js
+// ./niche/nichejavascripts/virtualassistant.js
 
 window.niches = window.niches || {};
 
@@ -53,12 +53,8 @@ window.virtualassistant =
     "<li>Certification f</li>" +
   "</ul>" +
 
-//   "<h2>EDUCATION</h2>" +
-//   "<ul>" +
-//     "<li>Education item</li>" +
-//   "</ul>" +
-    "<h2>EDUCATION</h2>" +
-    window.globalSettings.educationHTML +
+  "<h2>EDUCATION</h2>" +
+  window.globalSettings.educationHTML +
 
   "<h2>SKILLS, EXPERTISE & TOOLS</h2>" +
 
@@ -81,10 +77,5 @@ window.virtualassistant =
     "<li>Lorem ipsum</li>" +
   "</ul>" +
 
-//   "<h3>Languages</h3>" +
-//   "<ul>" +
-//     "<li>Lorem ipsum</li>" +
-//     "<li>Lorem ipsum</li>" +
-//   "</ul>";
-"<h3>Languages</h3>" +
-window.globalSettings.languagesHTML;
+  "<h3>Languages</h3>" +
+  window.globalSettings.languagesHTML;

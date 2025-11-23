@@ -1,4 +1,4 @@
-// assets/settings.js
+// ./assets/settings.js
 window.globalSettings = window.globalSettings || {};
 
 window.globalSettings.educationHTML =
@@ -48,7 +48,6 @@ window.sourceniches = [
   "datascience"
 ];
 
-// helper to return the HTML for niche buttons (single source of truth)
 window.getNicheButtonsHTML = function () {
   if (!Array.isArray(window.setniches)) return "";
   return window.setniches

@@ -16,7 +16,6 @@
     }
   }
 
-  // Collect <li> items from the UL that follows an H3 containing "technical" (case-insensitive)
   function collectTechnicalSkills() {
     const items = [];
     const srcs = SOURCES();
@@ -29,13 +28,11 @@
       const doc = safeParse(fromhtml);
       if (!doc) return;
 
-      // find H3 that contains the word 'technical' (case-insensitive)
       const h3s = Array.from(doc.querySelectorAll('h3'));
       let found = false;
       for (let i = 0; i < h3s.length; i++) {
         const h3 = h3s[i];
         if (h3.textContent && /technical/i.test(h3.textContent.trim())) {
-          // find the next element sibling that's a UL
           let next = h3.nextSibling;
           while (next && next.nodeType !== Node.ELEMENT_NODE) {
             next = next.nextSibling;
@@ -43,24 +40,19 @@
           if (next && next.tagName && next.tagName.toLowerCase() === 'ul') {
             const lis = Array.from(next.querySelectorAll('li'));
             lis.forEach(function (li) {
-              // include niche label so we know the origin
               items.push({
                 text: li.innerHTML.trim(),
                 source: (varName || '').toString()
               });
             });
             found = true;
-            break; // only use first matching UL after the H3
-          } else {
-            // no ul after H3
-          }
+            break; 
+          } else { }
         }
       }
-      // If no H3 matched, try fallback: look for any UL with "technical" words nearby
       if (!found) {
         const uls = Array.from(doc.querySelectorAll('ul'));
         uls.forEach(function (ul) {
-          // heuristics: if the preceding heading or a previous element includes 'technical'
           let prev = ul.previousElementSibling;
           if (prev && /technical/i.test(prev.textContent || '')) {
             const lis = Array.from(ul.querySelectorAll('li'));
@@ -72,18 +64,15 @@
       }
     });
 
-    // Map source code names to friendly labels when possible
     const niceNames = {};
     try {
-      // window.setniches and window.sourceniches are parallel arrays in your code
       if (Array.isArray(window.sourceniches) && Array.isArray(window.setniches)) {
         window.sourceniches.forEach(function (k, i) {
           niceNames[k] = window.setniches[i] || k;
         });
       }
-    } catch (ex) { /* ignore */ }
+    } catch (ex) { }
 
-    // convert into final array of strings, prefixing with source name
     return items.map(function (it) {
       const label = niceNames[it.source] || it.source || '';
       return label ? (it.text + ' &mdash; ' + label) : it.text;
@@ -142,7 +131,6 @@
     const items = collectTechnicalSkills();
     const node = buildNode(items);
     insertAfterProfile(node);
-    // scroll into view for convenience
     setTimeout(function () {
       const t = document.getElementById(TARGET_ID);
       if (t && typeof t.scrollIntoView === 'function') t.scrollIntoView({ behavior: 'smooth' });
@@ -165,7 +153,6 @@
       }
     });
 
-    // also remove when Home button clicked
     document.addEventListener('click', function (e) {
       const homeBtn = e.target.closest('#home-btn');
       if (homeBtn) removeNode();
@@ -186,7 +173,6 @@
         if (attempts < maxAttempts) {
           setTimeout(tryInit, delay);
         } else {
-          // still attach menu so click will attempt to collect later
           attachMenuListener();
           console.warn('skills.js: sources not ready after retries. Ensure skills.js is loaded after your niche scripts and that window.sourceniches/window.<source> variables are defined.');
         }
@@ -195,7 +181,6 @@
     tryInit();
   }
 
-  // public helper for manual repopulation (consistent with your other helpers)
   window.populateTechnicalSkillsFromSources = function () {
     try {
       const items = collectTechnicalSkills();
