@@ -73,8 +73,10 @@ window.datascience =
 
   "<h3>Technical Skills</h3>" +
   "<ul>" +
-    "<li>Lorem ipsum</li>" +
-    "<li>Lorem ipsum</li>" +
+    "<li>Lorem ipsum 9</li>" +
+    "<li>Lorem ipsum 5</li>" +
+    "<li>Lorem ipsum 6</li>" +
+    "<li>Lorem ipsum 10</li>" +
   "</ul>" +
 
   "<h3>Tools</h3>" +

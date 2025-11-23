@@ -64,14 +64,15 @@ window.virtualassistant =
 
   "<h3>Soft Skills</h3>" +
   "<ul>" +
-    "<li>Lorem ipsum</li>" +
-    "<li>Lorem ipsum</li>" +
+    "<li>Lorem ipsum 3</li>" +
+    "<li>Lorem ipsum 4</li>" +
   "</ul>" +
 
   "<h3>Technical Skills</h3>" +
   "<ul>" +
-    "<li>Lorem ipsum</li>" +
-    "<li>Lorem ipsum</li>" +
+    "<li>Lorem ipsum 3</li>" +
+    "<li>Lorem ipsum 8</li>" +
+    "<li>Lorem ipsum 4</li>" +
   "</ul>" +
 
   "<h3>Tools</h3>" +

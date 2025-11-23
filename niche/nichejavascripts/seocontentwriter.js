@@ -73,8 +73,9 @@ window.seocontentwriter =
 
   "<h3>Technical Skills</h3>" +
   "<ul>" +
-    "<li>Lorem ipsum</li>" +
-    "<li>Lorem ipsum</li>" +
+    "<li>Lorem ipsum 1</li>" +
+    "<li>Lorem ipsum 2</li>" +
+    "<li>Lorem ipsum 7</li>" +
   "</ul>" +
 
   "<h3>Tools</h3>" +
