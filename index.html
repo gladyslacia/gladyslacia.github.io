@@ -42,6 +42,8 @@
 
     html, body {
       height: 100%;
+      /* added below */
+      margin: 0;
     }
 
     body {
@@ -54,6 +56,10 @@
       font-family: var(--font-stack);
       font-variation-settings: "wght" 400, "opsz" 14;
       transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
+      /* added below */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     h1, h2, h3, p {
@@ -109,6 +115,12 @@
       flex-wrap: wrap;
     }
 
+    .bottom-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
     .menu-btn, .niche-btn {
       background: var(--primary);
       color: #fff;
@@ -148,6 +160,8 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 0 16px;
+      /* added below */
+      flex: 1;
     }
 
     .profile {
@@ -248,6 +262,8 @@
       margin-top: 6px;
       font-variation-settings: "wght" 700, "opsz" 14;
     }
+
+
 
     @media (max-width: 600px) {
       :root { --text: 14px; --h3: 16px; --h2: 18px; --h1: 24px; --line: 1.6; }
@@ -488,5 +504,14 @@
 })();
 </script>
 
+<!-- footer -->
+  <div class="bottom-footer">
+    <div class="top-menu" id="topmenu">
+      <button class="menu-btn" data-key="who">Who am I?</button>
+      <button class="menu-btn" data-key="done">What have I done?</button>
+      <button class="menu-btn" data-key="learned">What have I learned?</button>
+      <button class="menu-btn" data-key="can">What can I do?</button>
+    </div>
+  </div>
 </body>
 </html>
