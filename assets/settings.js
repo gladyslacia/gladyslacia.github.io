@@ -16,22 +16,22 @@ window.globalSettings.languagesHTML =
   "</ul>";
 
 window.globalSettings.businessphoneHTML =
-    "<p>&#128241; +63-912-461-9473</p>"
+    "<p>&#128241; WhatsApp: <a href='https://wa.me/639124619473' target='_blank'>+63-912-461-9473</a></p>"
 
 window.globalSettings.businessemailHTML =
-    "<p>&#128231; onbizgladyslacia@gmail.com</p>"
+    "<p>&#128231; Email: <a href='mailto:onbizgladyslacia@gmail.com' target='_blank'>onbizgladyslacia@gmail.com</a></p>"
 
 window.globalSettings.linkedinHTML =
-    "<p>&#128373; freelancergladyslacia</p>"
+    "<p>&#128373; LinkedIn: <a href='https://www.linkedin.com/in/freelancergladyslacia' target='_blank'>freelancergladyslacia</a></p>"
 
 window.globalSettings.facebookHTML =
-    "<p>&#128373; onbizgladyslacia</p>"
+    "<p>&#128373; FB: <a href='https://www.facebook.com/onbizgladyslacia' target='_blank'>onbizgladyslacia</a></p>"
 
 window.globalSettings.UpworkHTML =
-    "<p>&#128187; Upwork: 01496f55ce7a5e12b1</p>"
+    "<p>&#128187; Upwork: <a href='https://www.upwork.com/freelancers/~01496f55ce7a5e12b1' target='_blank'>01496f55ce7a5e12b1</a></p>"
 
 window.globalSettings.oljHTML =
-    "<p>&#128187; OnlineJobs.ph: 3977015</p>"
+    "<p>&#128187; OnlineJobs.ph: <a href='https://www.onlinejobs.ph/jobseekers/info/3977015' target='_blank'>3977015</a></p>"
 
 window.globalSettings.addressHTML =
     "<p>&#128236; Calamba, Misamis Occidental, Philippines</p>"
