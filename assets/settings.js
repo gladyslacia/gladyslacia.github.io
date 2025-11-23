@@ -48,11 +48,25 @@ window.sourceniches = [
   "datascience"
 ];
 
+// window.getNicheButtonsHTML = function () {
+//   if (!Array.isArray(window.setniches)) return "";
+//   return window.setniches
+//     .map(function (item) {
+//       return "<p><button class='niche-btn'>" + String(item).trim() + "</button></p>";
+//     })
+//     .join("");
+// };
+
 window.getNicheButtonsHTML = function () {
   if (!Array.isArray(window.setniches)) return "";
-  return window.setniches
+
+  const textBefore = "<p>Select a niche:</p>";
+
+  const buttonsHTML = window.setniches
     .map(function (item) {
       return "<p><button class='niche-btn'>" + String(item).trim() + "</button></p>";
     })
     .join("");
+
+  return textBefore + buttonsHTML;
 };
