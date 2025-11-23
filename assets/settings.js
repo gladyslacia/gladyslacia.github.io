@@ -16,7 +16,7 @@ window.globalSettings.languagesHTML =
   "</ul>";
 
 window.globalSettings.businessphoneHTML =
-    "<p>+63-912-461-9473</p>"
+    "<p>&phone; +63-912-461-9473</p>"
 
 window.globalSettings.businessemailHTML =
     "<p>onbizgladyslacia@gmail.com</p>"
