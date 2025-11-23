@@ -51,6 +51,9 @@ window.datascience =
     "<li>Certification g</li>" +
     "<li>Certification h</li>" +
     "<li>Certification i</li>" +
+    "<li>Certification 10</li>" +
+    "<li>Certification 11</li>" +
+    "<li>Certification 12</li>" +
   "</ul>" +
 
 //   "<h2>EDUCATION</h2>" +
