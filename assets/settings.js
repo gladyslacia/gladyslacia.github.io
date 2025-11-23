@@ -16,16 +16,16 @@ window.globalSettings.languagesHTML =
   "</ul>";
 
 window.globalSettings.businessphoneHTML =
-    "<p>&#9990; +63-912-461-9473</p>"
+    "<p>&#128241; +63-912-461-9473</p>"
 
 window.globalSettings.businessemailHTML =
-    "<p>&#128386; onbizgladyslacia@gmail.com</p>"
+    "<p>&#128231; onbizgladyslacia@gmail.com</p>"
 
 window.globalSettings.linkedinHTML =
-    "<p>freelancergladyslacia</p>"
+    "<p>&#128373; freelancergladyslacia</p>"
 
 window.globalSettings.facebookHTML =
-    "<p>onbizgladyslacia</p>"
+    "<p>&#128373; onbizgladyslacia</p>"
 
 window.globalSettings.UpworkHTML =
     "<p>Upwork: 01496f55ce7a5e12b1</p>"
@@ -34,7 +34,7 @@ window.globalSettings.oljHTML =
     "<p>OnlineJobs.ph: 3977015</p>"
 
 window.globalSettings.addressHTML =
-    "<p>Calamba, Misamis Occidental, Philippines</p>"
+    "<p>&#128236; Calamba, Misamis Occidental, Philippines</p>"
 
 window.setniches = [
   "SEO Content Writer",
