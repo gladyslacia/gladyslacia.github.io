@@ -469,12 +469,13 @@
   const niche = window.setniches;
 
   const target = {
-    who:
-      niche
-        .map(function(item){
-          return "<p><button class='niche-btn'>" + item + "</button></p>";
-        })
-        .join(""),
+    who: window.getNicheButtonsHTML(),
+    // who: 
+      // niche
+      //   .map(function(item){
+      //     return "<p><button class='niche-btn'>" + item + "</button></p>";
+      //   })
+      //   .join(""),
 
     done: "<p>Projects and accomplishments go here.</p>",
     learned: "<p>Skills and learning highlights go here.</p>",
