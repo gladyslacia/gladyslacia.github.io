@@ -50,6 +50,9 @@ window.seocontentwriter =
     "<li>Certification 1</li>" +
     "<li>Certification 2</li>" +
     "<li>Certification 3</li>" +
+    "<li>Certification a</li>" +
+    "<li>Certification b</li>" +
+    "<li>Certification c</li>" +
   "</ul>" +
 
 //   "<h2>EDUCATION</h2>" +

@@ -45,9 +45,12 @@ window.virtualassistant =
 
   "<h2>CERTIFICATIONS & TRAININGS</h2>" +
   "<ul>" +
-    "<li>Certification 1</li>" +
-    "<li>Certification 2</li>" +
-    "<li>Certification 3</li>" +
+    "<li>Certification 4</li>" +
+    "<li>Certification 5</li>" +
+    "<li>Certification 6</li>" +
+    "<li>Certification d</li>" +
+    "<li>Certification e</li>" +
+    "<li>Certification f</li>" +
   "</ul>" +
 
 //   "<h2>EDUCATION</h2>" +

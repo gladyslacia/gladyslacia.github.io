@@ -45,9 +45,12 @@ window.datascience =
 
   "<h2>CERTIFICATIONS & TRAININGS</h2>" +
   "<ul>" +
-    "<li>Certification 1</li>" +
-    "<li>Certification 2</li>" +
-    "<li>Certification 3</li>" +
+    "<li>Certification 7</li>" +
+    "<li>Certification 8</li>" +
+    "<li>Certification 9</li>" +
+    "<li>Certification g</li>" +
+    "<li>Certification h</li>" +
+    "<li>Certification i</li>" +
   "</ul>" +
 
 //   "<h2>EDUCATION</h2>" +
