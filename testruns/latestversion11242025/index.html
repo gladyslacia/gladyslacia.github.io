@@ -42,6 +42,7 @@
 
     html, body {
       height: 100%;
+      margin: 0;
     }
 
     body {
@@ -54,6 +55,9 @@
       font-family: var(--font-stack);
       font-variation-settings: "wght" 400, "opsz" 14;
       transition: font-variation-settings var(--scale-ease) ease, font-weight var(--scale-ease) ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     h1, h2, h3, p {
@@ -109,6 +113,22 @@
       flex-wrap: wrap;
     }
 
+    .bottom-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .footer-contact {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-contact p {
+      color: var(--primary);
+    }
+
     .menu-btn, .niche-btn {
       background: var(--primary);
       color: #fff;
@@ -148,6 +168,7 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 0 16px;
+      flex: 1;
     }
 
     .profile {
@@ -183,7 +204,6 @@
     line-height: 1 !important;
     }
 
-    /* to be fixed */
     #home p {
     margin: 0 !important;
     padding: 0 !important;
@@ -208,7 +228,6 @@
       font-variation-settings: "wght" 400, "opsz" 14;
     }
 
-    /* to be fixed */
     #home {
       display: none;
       margin-top: 18px;
@@ -249,6 +268,8 @@
       font-variation-settings: "wght" 700, "opsz" 14;
     }
 
+
+
     @media (max-width: 600px) {
       :root { --text: 14px; --h3: 16px; --h2: 18px; --h1: 24px; --line: 1.6; }
       .profile img { width: 110px; height: 110px; }
@@ -275,18 +296,17 @@
 
       <div class="details">
         <h1>GLADYS LACIA</h1>
-
+        <!-- left it "naked" so there would be as little editing needed as possible -->
         <div id="details">
-          <p>Freelancer &mdash; SEO Content Writer / Virtual Assistant / Sales Data Analyst / Teacher</p>
-          <p>onbizgladyslacia@gmail.com</p>
-          <p>Upwork: 01496f55ce7a5e12b1</p>
-          <p>OLJ: 3977015 (OnlineJobs.ph)</p>
+          <p>&#128188; Freelancer &mdash; SEO Content Writer / Virtual Assistant / Sales Data Analyst</p>
+          <p>&#128231; onbizgladyslacia@gmail.com</p>
+          <p>&#128187; Upwork: 01496f55ce7a5e12b1</p>
+          <p>&#128187; OnlineJobs.ph: 3977015</p>
         </div>
       </div>
     </div>
 
     <div id="resume"></div>
-    <!-- to be fixed -->
     <div id="home"></div>
 
   </div>
@@ -297,113 +317,114 @@
     <script src="./niche/nichejavascripts/virtualassistant.js"></script>
     <script src="./niche/nichejavascripts/datascience.js"></script>
     <script src="./niche/projects.js"></script>
+    <script src="./niche/trainings.js"></script>
+    <script src="./niche/skills.js"></script>
 
-<script>
-(function () {
-  const menu = document.getElementById('topmenu');
-  const vardetails = document.getElementById('details');
-  const original = vardetails.innerHTML;
-  const resumecontent = document.getElementById('resume');
-  const homecontent = document.getElementById('home'); // <-- use home div
+  <script>
+  (function () {
+    const menu = document.getElementById('topmenu');
+    const vardetails = document.getElementById('details');
+    const original = vardetails.innerHTML;
+    const resumecontent = document.getElementById('resume');
+    const homecontent = document.getElementById('home'); 
 
-  const niche = window.setniches;
+    const niche = window.setniches;
 
-  const target = {
-    who:
-      niche
-        .map(function(item){
-          return "<p><button class='niche-btn'>" + item + "</button></p>";
-        })
-        .join(""),
+    const target = {
+      who: window.getNicheButtonsHTML(),
+      done: "<p>Projects and accomplishments go here.</p>",
+      learned: "<p>Skills and learning highlights go here.</p>",
+      can: "<p>What I can do: list of services or skills.</p>"
+    };
 
-    done: "<p>Projects and accomplishments go here.</p>",
-    learned: "<p>Skills and learning highlights go here.</p>",
-    can: "<p>What I can do: list of services or skills.</p>"
-  };
+    function menubuttons() {
+      return Array.prototype.slice.call(menu.querySelectorAll('.menu-btn[data-key]'));
+    }
 
-  function menubuttons() {
-    return Array.prototype.slice.call(menu.querySelectorAll('.menu-btn[data-key]'));
-  }
-
-  function activemenu(btn) {
-    menubuttons().forEach(function(b){
-      b.classList.toggle('active', b === btn);
-    });
-  }
-
-  function hideResume() {
-    resumecontent.style.display = 'none';
-    resumecontent.innerHTML = "";
-  }
-
-  function hideHome() {
-    if (!homecontent) return;
-    homecontent.style.display = 'none';
-    // keep the html so it can be re-shown, or clear if you prefer:
-    // homecontent.innerHTML = "";
-  }
-
-  function addhomebutton() {
-    if (document.getElementById('home-btn')) return;
-
-    const home = document.createElement('button');
-    home.id = 'home-btn';
-    home.className = 'menu-btn';
-    home.textContent = 'Home';
-
-    home.addEventListener('click', function () {
-      // restore details
-      vardetails.innerHTML = original;
-
-      // hide resume
-      hideResume();
-
-      // show home (populate with window.homeContent if provided)
-      if (homecontent) {
-        homecontent.innerHTML = window.homeContent || "";
-        homecontent.style.display = 'block';
-
-      }
-
+    function activemenu(btn) {
       menubuttons().forEach(function(b){
-        b.classList.remove('active');
+        b.classList.toggle('active', b === btn);
+      });
+    }
+
+    function hideResume() {
+      resumecontent.style.display = 'none';
+      resumecontent.innerHTML = "";
+    }
+
+    function hideHome() {
+      if (!homecontent) return;
+      homecontent.style.display = 'none';
+    }
+
+    function addhomebutton() {
+      if (document.getElementById('home-btn')) return;
+
+      const home = document.createElement('button');
+      home.id = 'home-btn';
+      home.className = 'menu-btn';
+      home.textContent = 'Home';
+
+      home.addEventListener('click', function () {
+        vardetails.innerHTML = original;
+        hideResume();
+
+        if (homecontent) {
+          homecontent.innerHTML = window.homeContent || "";
+          homecontent.style.display = 'block';
+
+          if (typeof window.populateHomeProjectsFromSources === 'function') {
+            window.populateHomeProjectsFromSources();
+          }
+
+          if (typeof window.populateTrainingsFromSources === 'function') {
+            window.populateTrainingsFromSources();
+          }
+        }
+
+        menubuttons().forEach(function(b){
+          b.classList.remove('active');
+        });
+
+        const existingHome = document.getElementById('home-btn');
+        if (existingHome) existingHome.remove();
       });
 
-      const existingHome = document.getElementById('home-btn');
-      if (existingHome) existingHome.remove();
-    });
+      menu.prepend(home);
+    }
 
-    menu.prepend(home);
-  }
+    function clickmenu(e) {
+      const key = e.currentTarget.dataset.key;
+      if (!key) return;
 
-  function clickmenu(e) {
-    const key = e.currentTarget.dataset.key;
-    if (!key) return;
+      activemenu(e.currentTarget);
 
-    activemenu(e.currentTarget);
+      hideHome();
+      hideResume();
 
-    // hide home and resume when viewing a menu section
-    hideHome();
-    hideResume();
+      vardetails.innerHTML = target[key] || original;
 
-    vardetails.innerHTML = target[key] || original;
+      addhomebutton();
+    }
 
-    addhomebutton();
-  }
+    function menuactions() {
+      menubuttons().forEach(function(btn){
+        btn.removeEventListener('click', clickmenu);
+        btn.addEventListener('click', clickmenu);
+      });
+    }
 
-  function menuactions() {
-    menubuttons().forEach(function(btn){
-      btn.removeEventListener('click', clickmenu);
-      btn.addEventListener('click', clickmenu);
-    });
-  }
+    function handleNicheSelection(name) {
+      name = (name || "").trim();
+      if (!name) return;
 
-  vardetails.addEventListener('click', function(e){
-    if (e.target.matches('.niche-btn')) {
-      const name = e.target.textContent.trim();
+      if (typeof addhomebutton === 'function') addhomebutton();
+
+      var whoBtn = menu.querySelector('.menu-btn[data-key="who"]');
+      if (whoBtn) activemenu(whoBtn);
+
       vardetails.innerHTML = (window.niches && window.niches[name]) || "<p>" + name + "</p>";
 
-      // hide home when showing a niche resume
       hideHome();
 
       if (name === "SEO Content Writer") {
@@ -421,27 +442,75 @@
 
       resumecontent.scrollIntoView({ behavior: 'smooth' });
     }
-  });
 
-  // when the page loads, optionally show home by default if you want:
-  // if (homecontent) { homecontent.innerHTML = window.homeContent || ""; homecontent.style.display = 'block'; addhomebutton(); }
+    vardetails.addEventListener('click', function(e){
+      if (e.target.matches('.niche-btn')) {
+        const name = e.target.textContent;
+        handleNicheSelection(name);
+      }
+    });
 
-  menuactions();
-
-  // If we have a home div, populate it and show it immediately.
-  if (homecontent) {
-    // populate from niche/home.js if available
-    if (typeof window.homeContent === 'string' && window.homeContent.trim() !== '') {
-      homecontent.innerHTML = window.homeContent;
+    if (homecontent) {
+      homecontent.addEventListener('click', function(e){
+        if (e.target.matches('.niche-btn')) {
+          const name = e.target.textContent;
+          handleNicheSelection(name);
+        }
+      });
     }
-    // make sure it is visible
-    homecontent.style.display = 'block';
 
-    // ensure Home button exists so user can return to "home" view after clicking other menus
-    // addhomebutton();
-  }
-})();
-</script>
+    menuactions();
+
+    if (homecontent) {
+      if (typeof window.homeContent === 'string' && window.homeContent.trim() !== '') {
+        homecontent.innerHTML = window.homeContent;
+      }
+      homecontent.style.display = 'block';
+
+      if (typeof window.populateHomeProjectsFromSources === 'function') {
+        window.populateHomeProjectsFromSources();
+      }
+      if (typeof window.populateTrainingsFromSources === 'function') {
+        window.populateTrainingsFromSources();
+      }
+
+      // ensure Home button exists so user can return to "home" view after clicking other menus
+      // (optional) addhomebutton();
+    }
+  })();
+  </script>
+
+  <div class="bottom-footer">
+    <div class="footer-contact" id="footercontact">
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    function getSettingHTML(key) {
+      try {
+        var val = window.globalSettings && window.globalSettings[key];
+        if (!val) return "";
+        if (typeof val === "function") return String(val());
+        return String(val);
+      } catch (err) {
+        return "";
+      }
+    }
+
+    var footer = document.getElementById('footercontact');
+    if (!footer) return;
+
+    var contacts = [
+      getSettingHTML('businessphoneHTML'),
+      getSettingHTML('businessemailHTML'),
+      getSettingHTML('linkedinHTML'),
+      getSettingHTML('facebookHTML')
+    ];
+
+    footer.innerHTML = contacts.filter(Boolean).join("\n");
+  })();
+  </script>
 
 </body>
 </html>

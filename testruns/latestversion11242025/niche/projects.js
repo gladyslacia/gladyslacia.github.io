@@ -1,3 +1,4 @@
+// ./niche/projects.js
 (function () {
 
   const PROJECTSOURCES = window.sourceniches;
@@ -17,6 +18,8 @@
 
   function collectprojects() {
     const varprojects = [];
+
+    if (!Array.isArray(PROJECTSOURCES)) return varprojects;
 
     PROJECTSOURCES.forEach(function (varName) {
       const fromhtml = window[varName];
@@ -48,8 +51,9 @@
     const projectdiv = document.createElement('div');
     projectdiv.id = ADDPROJECTS;
 
-    const heading = document.createElement('p');
-    heading.className = 'projects';
+    const heading = document.createElement('h2');
+    heading.textContent = 'PROJECTS';
+    projectdiv.appendChild(heading);
 
     const ol = document.createElement('ol');
     varprojects.forEach(function (inner) {
@@ -70,6 +74,24 @@
     else parent.appendChild(newNode);
   }
 
+  function populateHomeProjects(varprojects) {
+    if (!Array.isArray(varprojects) || varprojects.length === 0) return;
+
+    const homeListContainer = document.getElementById('home-projects-list');
+    if (!homeListContainer) return;
+
+    homeListContainer.innerHTML = '';
+
+    const ol = document.createElement('ol');
+    varprojects.forEach(function (inner) {
+      const li = document.createElement('li');
+      li.innerHTML = inner;
+      ol.appendChild(li);
+    });
+
+    homeListContainer.appendChild(ol);
+  }
+
   function showprojects() {
     if (document.getElementById(ADDPROJECTS)) return;
     const varprojects = collectprojects();
@@ -79,6 +101,8 @@
     const profile = document.querySelector('.profile');
     if (!profile) return;
     insert(block, profile);
+
+    populateHomeProjects(varprojects);
   }
 
   function removeprojects() {
@@ -109,9 +133,26 @@
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', attachmenu);
+    document.addEventListener('DOMContentLoaded', function () {
+      attachmenu();
+
+      const varprojects = collectprojects();
+      populateHomeProjects(varprojects);
+    });
   } else {
     attachmenu();
+
+    const varprojects = collectprojects();
+    populateHomeProjects(varprojects);
   }
+
+    window.populateHomeProjectsFromSources = function () {
+      try {
+        const varprojects = collectprojects();
+        populateHomeProjects(varprojects);
+      } catch (err) {
+        console.warn('populateHomeProjectsFromSources error', err);
+      }
+    };
 
 })();
