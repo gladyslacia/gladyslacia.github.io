@@ -359,21 +359,6 @@
       // hide resume
       hideResume();
 
-      // show home (populate with window.homeContent if provided)
-      // if (homecontent) {
-      //   homecontent.innerHTML = window.homeContent || "";
-      //   homecontent.style.display = 'block';
-      //   // homeprojects
-      //   // NEW: populate the home projects list from the same sources
-      //   if (typeof window.populateHomeProjectsFromSources === 'function') {
-      //     // give the DOM a tiny tick to ensure the #home-projects-list exists
-      //     // (setTimeout with 0ms ensures synchronous insertion has completed)
-      //     setTimeout(function () {
-      //       window.populateHomeProjectsFromSources();
-      //     }, 0);
-      //   }
-
-      // }
       if (homecontent) {
         homecontent.innerHTML = window.homeContent || "";
         homecontent.style.display = 'block';
