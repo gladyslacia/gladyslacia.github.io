@@ -34,7 +34,7 @@ window.globalSettings.oljHTML =
     "<p>&#128187; OnlineJobs.ph: <a href='https://www.onlinejobs.ph/jobseekers/info/3977015' target='_blank'>3977015</a></p>"
 
 window.globalSettings.addressHTML =
-    "<p>&#128236; Calamba, Misamis Occidental, Philippines</p>"
+    "<p>&#128236; <a href='https://www.google.com/maps?q=8.5608125,123.6474219' target='_blank'>HJ6W+8XF</a> Calamba, Misamis Occidental, Philippines</p>"
 
 window.setniches = [
   "SEO Content Writer",
