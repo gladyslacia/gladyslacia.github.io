@@ -1,1 +1,97 @@
+/* =====================
+   CSS VARIABLES
+===================== */
+:root {
+  --deep-red: #4A0404;
+  --deep-purple: #27044A;
+  --canvas-main: #FAF9F6;
+  --canvas-card: #FFFFFF;
+  --text-main: #111;
+  --text-muted: #666;
+  --border-light: #E0E0E0;
+}
+
+/* =====================
+   RESET & BASE
+===================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--deep-red),
+    var(--deep-purple)
+  );
+  color: var(--text-main);
+}
+
+/* =====================
+   LAYOUT
+===================== */
+.coming-soon {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.card {
+  max-width: 520px;
+  width: 100%;
+  background: var(--canvas-card);
+  border-radius: 16px;
+  padding: 3rem 2.25rem;
+  text-align: center;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* =====================
+   CONTENT
+===================== */
+.profile-img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.25rem;
+  border: 3px solid var(--deep-purple);
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  margin: 0 0 1rem;
+  color: var(--deep-red);
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
+}
+
+p.muted {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 480px) {
+  .card {
+    padding: 2.25rem 1.75rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+}
 
