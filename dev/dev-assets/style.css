@@ -102,6 +102,130 @@ a:hover {
   color: #B0B0B0;
 }
 
+/* Version 2 */
+/* .pie-graph {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+} */
+
+/* */
+
+/* Version 2 - Contact Information and DISC Pie Graph */
+
+.pie-graph {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.pie-graph > .section:first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.pie-graph > .section:last-child {
+  flex: 0 0 230px;
+  min-width: 0;
+}
+
+/* Pie Chart */
+
+.disc-chart {
+  width: 150px;
+  height: 150px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #8B1E1E 0% 21%,
+    #D99A00 21% 46%,
+    #477A46 46% 67%,
+    #3569A8 67% 100%
+  );
+}
+
+/* Legend */
+
+.disc-legend {
+  list-style: none;
+  margin: 0 auto 12px;
+  padding: 0;
+  max-width: 220px;
+}
+
+.disc-legend li {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.disc-d {
+  background-color: #8B1E1E;
+}
+
+.disc-i {
+  background-color: #D99A00;
+}
+
+.disc-s {
+  background-color: #477A46;
+}
+
+.disc-c {
+  background-color: #3569A8;
+}
+
+.percentage {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.disc-total {
+  text-align: right;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-top: 8px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .pie-graph {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .pie-graph > .section:first-child,
+  .pie-graph > .section:last-child {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .pie-graph > .section:last-child {
+    max-width: 260px;
+    align-self: center;
+  }
+
+  .disc-chart {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* */
+
 /* Responsive */
 @media (max-width: 600px) {
   .header {
@@ -117,4 +241,7 @@ a:hover {
   .header-text h1 {
     font-size: 1.75rem;
   }
+
+  /* Version 2 - Columns */
+
 }
